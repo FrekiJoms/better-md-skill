@@ -8,7 +8,6 @@
   <br>
   <a href="https://agentskills.io/"><img src="https://img.shields.io/badge/Agent%20Skills-standard-blue" alt="Agent Skills"></a>
   <a href="package.json"><img src="https://img.shields.io/badge/node-%3E%3D18-339933" alt="Node.js"></a>
-  <a href=".github/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/FrekiJoms/better-md-skill/ci.yml" alt="CI"></a>
 </p>
 
 <img width="960" height="392" alt="image" src="https://github.com/user-attachments/assets/bb087159-eedd-4e7b-8e3b-d9143a1c1a7c" />
