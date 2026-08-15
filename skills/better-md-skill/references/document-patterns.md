@@ -16,23 +16,23 @@ Purpose: get a visitor from zero to productive in under a minute.
 
 When **creating or improving the main README** (`README.md` at the repository root), the full pattern below is the deliverable — not a stretch goal. Work through the **mandatory section checklist in this exact order**, then compare the result against `examples/README.md` (the concrete model of this pattern):
 
-1. **Frontmatter** (optional, when the repo has a docs culture): YAML frontmatter with `title`, `description`, `keywords`, `ms.date`, `ms.topic`, `estimated_reading_time`. GitHub renders it as a metadata table at the top of the page.
+1. **Frontmatter**: YAML frontmatter with `title`, `description`, `keywords`, `ms.date`, `ms.topic`, `estimated_reading_time` — default-present for GitHub-targeted READMEs (renders as a metadata table). Skip only for non-GitHub or portable-CommonMark targets.
 2. **H1 + hero**: `# Project name`, then a centered banner (author a real SVG per `visual-assets` when one is missing).
-3. **Badge row**: license, CI, docs, quality. Only real, verified badges — never fabricated CI or release badges; for a new project, static badges (license, "PRs welcome") are the honest default.
+3. **Badge row**: the honest default set is **license + "PRs welcome"** — static shields, both truthful for any open-source project. Add CI, language, or docs badges **only when verifiable** from the worktree (CI config present, language provable). Never fabricated CI or release badges.
 4. **Purpose paragraph**: one paragraph — what it is, when to use it, what it provides. Follow with one "Use it when…" sentence and a short "It provides:" bullet list.
-5. **Scope callout**: a `CAUTION` or `NOTE` stating what the project is and is not. Honest scoping builds trust and prevents misuse.
+5. **Scope callout**: a `CAUTION` or `NOTE` stating what the project is and is not. **Always present** — honest scoping builds trust and prevents misuse.
 6. **Where to Start**: numbered steps from zero to first useful result, then `TIP` callouts for alternative entry points.
 7. **Choose Your Path**: one short entry per reader persona — new user, team lead, contributor — each with exactly one link. Never a paragraph per persona.
 8. **Navigate This Repository**: a two-column goal table (`| Goal | Go here |`) mapping every reader intent to its exact path. This is the single highest-value navigation pattern; keep every row a verb-first goal and every cell an anchor link to the matching section.
-9. **Tech Stack** (conditional): a restrained icon row (verified, documented icon URLs such as Devicon) near the top, right after the description.
+9. **Tech Stack** (evidence-gated — see note below): a restrained icon row near the top, right after the description, using verified, documented icon URLs (Devicon). **Only technologies proven by the worktree** (see SKILL.md Step 4): `package.json`, `pyproject.toml`, `cargo.toml`, `go.mod`, `*.csproj`, `requirements.txt`, lockfiles, `Dockerfile`. No evidence → **omit the section and record the omission** in the report. Never guess a stack from the README's own prose.
 10. **Features**: what it does, in scannable bullets.
-11. **Install**: minimal steps from nothing to running.
-12. **Quick Start**: the fastest useful example; a small code block beats prose.
+11. **Install**: numbered steps from nothing to running — its own section.
+12. **Quick Start**: the fastest useful example; a small code block beats prose — its own section. Keep Install and Quick Start **separate even when the steps overlap**; readers expect both headings.
 13. **API / Configuration** (conditional — only if the project exposes one).
 14. **Screenshots**: after the core sections; screenshots the agent cannot produce become `VISUAL SUGGESTION` comments at the exact location.
 15. **Documentation**: a guide table (`| Guide | Description |`) for deeper docs, plus a docs-site link when one exists.
 16. **Contact / About** (conditional — when the project has them): real addresses only — no invented emails or handles.
-17. **Contributing**: link to the guide, open issues, and discussions — three links, no prose.
+17. **Contributing**: **always present** — link to the guide, open issues, and discussions (three links, no prose); when the repo has no contributing guide, use the three generic steps (fork, feature branch, pull request) or link to issues. Never omit silently.
 18. **License**: link or short text.
 
 Rules: every table is goal-first (reader intent → destination); one link per intent, never repeated; link text is the section title (anchor links slugify GitHub headings); all anchors must resolve to real headings; badges truthful; callouts sparse (one scope CAUTION plus TIPs).

@@ -47,6 +47,8 @@ Read the entire document first. Do not edit what you have not read.
 
 Look for `assets/`, `docs/images/`, `images/`, `.github/assets/`, logos, icons, screenshots, and theme variants. Existing assets are preferred over external URLs and affect visual recommendations.
 
+Also scan the worktree for **technology evidence**: `package.json`, `pyproject.toml`, `cargo.toml`, `go.mod`, `*.csproj`, `requirements.txt`, lockfiles, `Dockerfile`, `.github/workflows/`. The README's **Tech Stack** section may only name technologies proven by this evidence — never guess a stack from the README's prose, and never add a Tech Stack section when no evidence exists (omit it and record the omission in the report).
+
 ### Step 5: Analyze structure and content
 
 - **Audience**: end users, developers, maintainers, contributors?
@@ -70,7 +72,7 @@ First, load only the relevant references — never all of them, never none when 
 
 Do not apply irrelevant rules. A portable CommonMark document must not receive GitHub-only features (alerts, task lists, emoji shortcodes, etc.).
 
-The **full README pattern applies to the main README** (`README.md` at the repository root) — and it is the **deliverable, not a suggestion**. Follow the mandatory section checklist in `document-patterns` (README, main), in its exact order, and use `examples/README.md` as the concrete model: the result must match its structure and design, not a minimally polished draft. Apply every section the project supports; do not stop after improving prose or fixing a few lists. If a section's content is genuinely absent (no contact info, no contributing docs), omit that section and record the omission in your final report — never fake content to fill it. Anchor links must resolve to real headings; badges truthful. Degrade gracefully only when the context cannot support parts (non-GitHub renderer, unverifiable badges, no assets). **Other document types never receive README-only structures** — no badge rows, goal-navigation tables, persona sections, or tech-stack icon rows in API docs, tutorials, specifications, changelogs, or any non-README document.
+The **full README pattern applies to the main README** (`README.md` at the repository root) — and it is the **deliverable, not a suggestion**. Follow the mandatory section checklist in `document-patterns` (README, main), in its exact order, and use `examples/README.md` as the concrete model: the result must match its structure and design, not a minimally polished draft. **Always-present sections**: frontmatter, scope callout, Install and Quick Start as separate sections, and Contributing. **Tech Stack is evidence-gated**: present only when the worktree proves the stack (see Step 4) — no evidence, no section, and say so in the report. Do not stop after improving prose or fixing a few lists. If a conditional section's content is genuinely absent (no contact info, no API), omit it and record the omission in your final report — never fake content to fill it. Anchor links must resolve to real headings; badges truthful. Degrade gracefully only when the context cannot support parts (non-GitHub renderer, unverifiable badges, no assets). **Other document types never receive README-only structures** — no badge rows, goal-navigation tables, persona sections, or tech-stack icon rows in API docs, tutorials, specifications, changelogs, or any non-README document.
 
 Then apply the decision rules below and edit with diff-oriented minimalism: many small, targeted edits over a full rewrite; preserve the author's voice; keep technical identifiers, command names, file paths, API signatures, and code exactly as they are; preserve existing links, images, and assets unless they are broken or the user asked to change them; never change code inside fenced blocks except clear formatting whitespace (and only when asked); re-read the whole document after significant restructuring. If the document is already well-formed, make **no changes** and report that.
 
@@ -139,6 +141,7 @@ One final Markdown validation pass, then return the improved document plus a con
 - State the document type and target renderer you assumed (e.g., "Assumed GitHub README, GFM").
 - If you made no changes, say the document already meets the standards and why.
 - If you validated but could not (e.g., could not fetch a URL), say what remains unverified.
+- For a main README, end with a short **README report**: every omitted conditional section and why (especially Tech Stack when the worktree lacks evidence, API when the project exposes none, Contact when none exists).
 - End with a concise Visual Review report:
   - No visuals needed: `Visual Review: No additional visuals recommended.`
   - Suggestions added: list the opportunities and state that the suggestions were inserted at the relevant locations.

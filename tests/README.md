@@ -57,5 +57,6 @@ The fixtures exercise the capability matrix:
 | SVG asset authoring | 43, 44 |
 | Main README full pattern | 45, 47 |
 | No README pattern in non-README docs | 46 |
+| Tech Stack evidence gating | 48, 49 |
 | Content preservation | all (integrity check applies everywhere) |
 | Large documents | 10 (API reference is deliberately long) |
