@@ -82,8 +82,8 @@ example-cli --watch docs/
 This project uses the following technologies:
 
 <p align="left">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" width="40" alt="Node.js">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" width="40" alt="TypeScript">
+  <img src="https://cdn.simpleicons.org/node.js/5FA04E" width="32" height="32" alt="Node.js">
+  <img src="https://cdn.simpleicons.org/typescript/3178C6" width="32" height="32" alt="TypeScript">
 </p>
 
 ## Documentation

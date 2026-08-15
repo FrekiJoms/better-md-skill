@@ -14,32 +14,60 @@ Purpose: get a visitor from zero to productive in under a minute.
 
 ### README, main (full — the deliverable when creating or improving a repo-root README)
 
-When **creating or improving the main README** (`README.md` at the repository root), the full pattern below is the deliverable — not a stretch goal. Work through the **mandatory section checklist in this exact order**, then compare the result against `examples/README.md` (the concrete model of this pattern):
+When **creating or improving the main README** (`README.md` at the repository root), the full pattern below is the deliverable — not a stretch goal. Work through the checklist below in order, then compare the result against `examples/README.md` (a style reference only — see scope calibration). Before anything else, calibrate the scope:
 
-1. **Frontmatter**: YAML frontmatter with `title`, `description`, `keywords`, `ms.date`, `ms.topic`, `estimated_reading_time` — default-present for GitHub-targeted READMEs (renders as a metadata table). Skip only for non-GitHub or portable-CommonMark targets.
-2. **H1 + hero**: `# Project name`, then a centered banner (author a real SVG per `visual-assets` when one is missing).
-3. **Badge row**: the honest default set is **license + "PRs welcome"** — static shields, both truthful for any open-source project. Add CI, language, or docs badges **only when verifiable** from the worktree (CI config present, language provable). Never fabricated CI or release badges.
-4. **Purpose paragraph**: one paragraph — what it is, when to use it, what it provides. Follow with one "Use it when…" sentence and a short "It provides:" bullet list.
-5. **Scope callout**: a `CAUTION` or `NOTE` stating what the project is and is not. **Always present** — honest scoping builds trust and prevents misuse.
-6. **Where to Start**: numbered steps from zero to first useful result, then `TIP` callouts for alternative entry points.
-7. **Choose Your Path**: one short entry per reader persona — new user, team lead, contributor — each with exactly one link. Never a paragraph per persona.
-8. **Navigate This Repository**: a two-column goal table (`| Goal | Go here |`) mapping every reader intent to its exact path. This is the single highest-value navigation pattern; keep every row a verb-first goal and every cell an anchor link to the matching section.
-9. **Tech Stack** (evidence-gated — see note below): a restrained icon row near the top, right after the description, using verified, documented icon URLs (Devicon). **Only technologies proven by the worktree** (see SKILL.md Step 4): `package.json`, `pyproject.toml`, `cargo.toml`, `go.mod`, `*.csproj`, `requirements.txt`, lockfiles, `Dockerfile`. No evidence → **omit the section and record the omission** in the report. Never guess a stack from the README's own prose.
-10. **Features**: what it does, in scannable bullets.
-11. **Install**: numbered steps from nothing to running — its own section.
-12. **Quick Start**: the fastest useful example; a small code block beats prose — its own section. Keep Install and Quick Start **separate even when the steps overlap**; readers expect both headings.
-13. **API / Configuration** (conditional — only if the project exposes one).
-14. **Screenshots**: after the core sections; screenshots the agent cannot produce become `VISUAL SUGGESTION` comments at the exact location.
-15. **Documentation**: a guide table (`| Guide | Description |`) for deeper docs, plus a docs-site link when one exists.
-16. **Contact / About** (conditional — when the project has them): real addresses only — no invented emails or handles.
-17. **Contributing**: **always present** — link to the guide, open issues, and discussions (three links, no prose); when the repo has no contributing guide, use the three generic steps (fork, feature branch, pull request) or link to issues. Never omit silently.
-18. **License**: link or short text.
+**Scope calibration:**
+
+- **Size gate**: if the improved README will be under ~200 lines, do **not** add navigational structure — no "Where to Start", no "Choose Your Path", no Navigate/index tables. Short READMEs get the opening (description, purpose), the sections their content demands, and nothing a reader cannot use. Navigational structure belongs only to long READMEs (~200+ lines) where readers actually need a map.
+- **Derive structure from the document's content** — never copy sections from `examples/` or reference files. A section earns its place because the document's own content needs it, not because a template has it.
+- **Frontmatter**: never add YAML frontmatter or metadata fields (`ms.date`, `ms.topic`, `estimated_reading_time`, `keywords`, …) unless they are already present in the original or the user explicitly requests them. If present, keep and fix them.
+
+Then the checklist:
+
+1. **H1 + hero**: `# Project name`, then a centered banner (author a real SVG per `visual-assets` when one is missing).
+2. **Badge row** (detection-driven — see "Badges" below): check the worktree and repo for badge-supporting signals **before** adding anything.
+3. **Purpose paragraph**: one paragraph — what it is, when to use it, what it provides. Follow with one "Use it when…" sentence and a short "It provides:" bullet list.
+4. **Scope callout**: a `CAUTION` or `NOTE` stating what the project is and is not. **Always present** — honest scoping builds trust and prevents misuse.
+5. **Where to Start** (long READMEs only): numbered steps from zero to first useful result, then `TIP` callouts for alternative entry points.
+6. **Choose Your Path** (long READMEs only): one short entry per reader persona — new user, team lead, contributor — each with exactly one link. Never a paragraph per persona.
+7. **Navigate This Repository** (long READMEs only): a two-column goal table (`| Goal | Go here |`) mapping every reader intent to its exact path. This is the single highest-value navigation pattern; keep every row a verb-first goal and every cell an anchor link to the matching section.
+8. **Tech Stack** (detection-driven — see "Tech stack section" below): a restrained icon row near the top, right after the description.
+9. **Features**: what it does, in scannable bullets.
+10. **Install**: numbered steps from nothing to running — its own section.
+11. **Quick Start**: the fastest useful example; a small code block beats prose — its own section. Keep Install and Quick Start **separate even when the steps overlap**; readers expect both headings.
+12. **API / Configuration** (conditional — only if the project exposes one).
+13. **Screenshots**: after the core sections; screenshots the agent cannot produce become `VISUAL SUGGESTION` comments at the exact location.
+14. **Documentation**: a guide table (`| Guide | Description |`) for deeper docs, plus a docs-site link when one exists.
+15. **Contact / About** (conditional — when the project has them): real addresses only — no invented emails or handles.
+16. **Contributing**: **always present** — link to the guide, open issues, and discussions (three links, no prose); when the repo has no contributing guide, use the three generic steps (fork, feature branch, pull request) or link to issues. Never omit silently.
+17. **License**: link or short text.
+
+**Badges** (detection-driven — apply before editing):
+
+Detect badge-supporting signals in the worktree and any linked repository:
+
+- `package.json` with a `name` field → npm version badge (`https://img.shields.io/npm/v/<package-name>`)
+- `.github/workflows/` → CI build status badge (`https://img.shields.io/github/actions/workflow/status/<owner>/<repo>/<workflow-file>`)
+- A GitHub repo URL in `package.json`, `pyproject.toml`, or the README itself → license, stars, issues, last-commit badges
+- A `codecov.yml` or `.coveralls.yml` → coverage badge
+- A `LICENSE` file → license badge
+
+If the README already has badges, check whether additional supported badges can be added. If it has no badges at all and the worktree supports them, add a badge row directly after the H1. Only add badges whose URLs can be constructed from verified information — never guess an owner, repo name, package name, or workflow filename. If a badge URL cannot be fully constructed from known values, skip it; do not placeholder it.
+
+**Tech stack section** (detection-driven — apply before editing):
+
+Detect the stack from two sources:
+
+- The README — any named languages, frameworks, or tools
+- The worktree — `package.json` (Node/npm), `requirements.txt` / `pyproject.toml` (Python), `Cargo.toml` (Rust), `go.mod` (Go), `*.csproj` (.NET), `Dockerfile` (Docker), `*.tf` (Terraform)
+
+If a stack is detected and the README has no tech stack section, add one after the opening description, before Features or Install. Use **Simple Icons** for each technology (`https://cdn.simpleicons.org/<slug>/<hex-color>`); confirm each slug on simpleicons.org before rendering. If a slug cannot be confirmed, omit that icon — do not guess. If no icons can be confirmed, place a `VISUAL SUGGESTION [TECH_STACK]` comment listing the detected technologies instead.
 
 Rules: every table is goal-first (reader intent → destination); one link per intent, never repeated; link text is the section title (anchor links slugify GitHub headings); all anchors must resolve to real headings; badges truthful; callouts sparse (one scope CAUTION plus TIPs).
 
-**Do not under-deliver**: stopping after improved prose, fixed lists, or a "polished draft" is a failure for a main README. Sections marked *conditional* are omitted only when the project genuinely lacks the content — then record the omission in your final report. Never fake content to fill a section.
+**Do not under-deliver — within calibration**: stopping after improved prose, fixed lists, or a "polished draft" is a failure for a main README. Sections the content supports are omitted only when the project genuinely lacks the content — then record the omission in your final report. Never fake content to fill a section — and never inflate a short README with navigational scaffolding it does not need.
 
-**Support detection — degrade only when the context cannot support the full pattern** (non-GitHub renderer, no repo, no assets directory, no docs culture): drop the badge row if badges cannot be verified; drop the hero if no asset can be created; keep the goal table and Where to Start (they work in any renderer); fall back to the minimal README pattern below rather than emitting broken or fabricated parts. Never fake a section to fill the pattern.
+**Support detection — degrade only when the context cannot support the full pattern** (non-GitHub renderer, no repo, no assets directory): drop badges that cannot be constructed from verified values; drop the hero if no asset can be created; skip navigational sections when the README stays under ~200 lines; fall back to the minimal README pattern below rather than emitting broken or fabricated parts.
 
 ### README, minimal (fallback)
 

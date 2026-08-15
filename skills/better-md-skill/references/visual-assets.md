@@ -266,22 +266,22 @@ you may offer a visual stack row:
 
 ```html
 <p align="left">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" width="40" alt="React">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" width="40" alt="TypeScript">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" width="40" alt="Node.js">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" width="40" alt="PostgreSQL">
+  <img src="https://cdn.simpleicons.org/react/61DAFB" width="32" height="32" alt="React">
+  <img src="https://cdn.simpleicons.org/typescript/3178C6" width="32" height="32" alt="TypeScript">
+  <img src="https://cdn.simpleicons.org/node.js/5FA04E" width="32" height="32" alt="Node.js">
+  <img src="https://cdn.simpleicons.org/postgresql/4169E1" width="32" height="32" alt="PostgreSQL">
 </p>
 ```
 
 Rules:
 
 - Only include technologies actually present in the project — never pad the stack.
-- Use only documented, verified URL patterns:
+- **Use Simple Icons**: `https://cdn.simpleicons.org/<slug>/<hex-color>` (see <https://simpleicons.org/>). Confirm each slug exists on simpleicons.org before using it; a slug you cannot confirm is omitted — never guessed.
+- Other documented, verified URL patterns:
   - Devicon: `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/<name>/<name>-original.svg` (see <https://devicon.dev/>)
-  - Simple Icons: `https://cdn.simpleicons.org/<slug>` (see <https://simpleicons.org/>)
   - Shields.io: `https://img.shields.io/badge/<LABEL>-<VALUE>-<COLOR>` (see <https://shields.io/>)
   - Official technology assets (e.g., `https://nodejs.org/static/images/logo.svg` — verify first)
-- Every `<img>` needs `alt` text and a `width` (40–64 px is typical for stack rows).
+- Every `<img>` needs `alt` text and a `width` (32 px with matching `height` for Simple Icons; 40–64 px is typical for stack rows).
 - Verify URLs when possible (HTTP 200). If you cannot verify, say so instead of guessing.
 
 ## Badges
