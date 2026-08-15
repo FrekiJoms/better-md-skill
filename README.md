@@ -14,14 +14,14 @@
 
 ## Better-md-skill
 
-Better-md-skill is a Markdown documentation engineering skill for AI coding agents. It creates, improves, restructures, audits, and validates Markdown — READMEs, API docs, tutorials, specifications, and changelogs — with CommonMark and GitHub Flavored Markdown awareness, markdownlint-inspired checks, GitHub documentation style, evidence-based reading psychology, and visual README design.
+Better-md-skill is a Markdown documentation engineering skill for AI coding agents. It creates, improves, restructures, audits, and validates Markdown (READMEs, API docs, tutorials, specifications, and changelogs) with CommonMark and GitHub Flavored Markdown awareness, markdownlint-inspired checks, GitHub documentation style, evidence-based reading psychology, and visual README design.
 
 Use it when you want AI-assisted Markdown work to be correct, readable, and standards-aligned. It provides:
 
-* Structured workflows for every document type — with diff-oriented, meaning-preserving edits
-* A validation gate that verifies links, assets, and content integrity — and never fabricates
-* Evidence-based readability rules — goal-first headings, chunked prose, restrained emphasis
-* Visual asset suggestions — precise invisible comments where screenshots or diagrams belong
+* Structured workflows for every document type, with diff-oriented, meaning-preserving edits
+* A validation gate that verifies links, assets, and content integrity, and never fabricates
+* Evidence-based readability rules: goal-first headings, chunked prose, restrained emphasis
+* Visual asset suggestions: precise invisible comments where screenshots or diagrams belong
 
 > [!CAUTION]
 > Better-md-skill is an opinionated quality standard, not a beautifier. It deliberately leaves good documents alone, never rewrites content beyond structure, and refuses to invent URLs, icons, badges, or image paths. Treat it as a standards layer on top of your agent, not a content author.
@@ -29,7 +29,7 @@ Use it when you want AI-assisted Markdown work to be correct, readable, and stan
 ## Where to Start
 
 1. Install the skill into your agent (see [Install](#install)).
-2. Restart your agent's session — skills are loaded at session start.
+2. Restart your agent's session. Skills are loaded at session start.
 3. Open a document and ask your agent:
 
 ```text
@@ -48,7 +48,7 @@ Improve this README using Better-md-skill.
 ## Choose Your Path
 
 * New to the skill: Start with [Install](#install) and [Use it](#use-it) to improve your first document.
-* Evaluating it: Run the [test suite](tests/README.md) — 51 cases covering every capability.
+* Evaluating it: Run the [test suite](tests/README.md), 51 cases covering every capability.
 * Extending it: Read the [Contributing Guide](#contributing) and add a fixture for any behavioral change.
 
 ## Navigate This Repository
@@ -103,7 +103,7 @@ The `postinstall` hook copies `skills/better-md-skill/` into every supported age
 > node scripts/install.mjs --list
 > ```
 >
-> For OpenCode you can also point `skills.paths` at this repository in `opencode.json` (scanned recursively for `**/SKILL.md`). Restart the agent's session after installing — skills are not hot-reloaded.
+> For OpenCode you can also point `skills.paths` at this repository in `opencode.json` (scanned recursively for `**/SKILL.md`). Restart the agent's session after installing. Skills are not hot-reloaded.
 
 ## Uninstall
 
@@ -121,7 +121,7 @@ npm run uninstall:skills          # same command
 node scripts/install.mjs --uninstall --agents opencode claude-code
 ```
 
-Or delete the folders directly — `~/.config/opencode/skills/better-md-skill`, `~/.claude/skills/better-md-skill`, `~/.agents/skills/better-md-skill`, `~/.codex/skills/better-md-skill`, `~/.gemini/skills/better-md-skill`, `~/.config/github-copilot/skills/better-md-skill`.
+Or delete the folders directly: `~/.config/opencode/skills/better-md-skill`, `~/.claude/skills/better-md-skill`, `~/.agents/skills/better-md-skill`, `~/.codex/skills/better-md-skill`, `~/.gemini/skills/better-md-skill`, `~/.config/github-copilot/skills/better-md-skill`.
 
 ## Use it
 
@@ -143,17 +143,17 @@ The skill picks the right rules for the document type and target renderer (GitHu
 
 ## What it improves
 
-* **Structure** — heading hierarchy, lists, tables, code fences, links, whitespace, fixed per document type
-* **Readability** — headings that lead with the reader's goal, chunked prose, restrained emphasis (evidence-based; see `references/reading-psychology.md`)
-* **GitHub readiness** — GFM tables, task lists, alerts, relative links, Mermaid, theme-aware images; portable documents stay portable
-* **Validation** — a post-edit gate that checks integrity, accessibility, and anti-fabrication
-* **Visual design** — verified tech icons, truthful badges, logos, screenshots, diagrams
-* **Asset authoring** — creates real SVG banners, logos, and icon sets in the repository when they are missing (SVG is text; no capture tools needed)
-* **Visual suggestions** — where a screenshot, diagram, or GIF would help but the agent cannot create it, it leaves a precise invisible `VISUAL SUGGESTION` comment in place (below)
+* **Structure**: heading hierarchy, lists, tables, code fences, links, whitespace, fixed per document type
+* **Readability**: headings that lead with the reader's goal, chunked prose, restrained emphasis (evidence-based; see `references/reading-psychology.md`)
+* **GitHub readiness**: GFM tables, task lists, alerts, relative links, Mermaid, theme-aware images; portable documents stay portable
+* **Validation**: a post-edit gate that checks integrity, accessibility, and anti-fabrication
+* **Visual design**: verified tech icons, truthful badges, logos, screenshots, diagrams
+* **Asset authoring**: creates real SVG banners, logos, and icon sets in the repository when they are missing (SVG is text; no capture tools needed)
+* **Visual suggestions**: when a screenshot, diagram, or GIF would help but the agent cannot create it, it leaves a precise invisible `VISUAL SUGGESTION` comment in place (below)
 
 ## How visual suggestions work
 
-After improving a document, the skill reviews it for visual opportunities. If the current agent cannot create or insert screenshots, images, or other assets, it places a precise, invisible HTML comment exactly where the asset belongs — never at the bottom, never a fake image reference:
+After improving a document, the skill reviews it for visual opportunities. If the current agent cannot create or insert screenshots, images, or other assets, it places a precise, invisible HTML comment exactly where the asset belongs. Never at the bottom, never a fake image reference:
 
 ```md
 ## Dashboard
@@ -185,7 +185,7 @@ After every edit, the skill re-reads the document and checks:
 
 ## How it works
 
-Eight reference modules are loaded conditionally — only the rules the document needs:
+Eight reference modules are loaded conditionally; only the rules a document needs are used:
 
 ```
 skills/better-md-skill/
@@ -208,7 +208,7 @@ A portable CommonMark document never receives GitHub-only rules; a GitHub README
 | Guide | Description |
 | --- | --- |
 | [See it in action](#see-it-in-action) | Model documents for every supported type |
-| [Test it](#test-it) | 42-case fixture suite and how to run it |
+| [Test it](#test-it) | 51-case fixture suite and how to run it |
 | [Tests reference](tests/README.md) | Test harness usage and capability matrix |
 | [Test cases](tests/SUITE.md) | Expected behavior per fixture |
 | [License](./LICENSE) | MIT |
@@ -217,11 +217,11 @@ A portable CommonMark document never receives GitHub-only rules; a GitHub README
 
 Model documents in `skills/better-md-skill/examples/`:
 
-* `README.md` — a model GitHub README
-* `API.md` — a model API reference
-* `tutorial.md` — a model tutorial
-* `specification.md` — a model specification
-* `changelog.md` — a model Keep a Changelog changelog
+* `README.md`: a model GitHub README
+* `API.md`: a model API reference
+* `tutorial.md`: a model tutorial
+* `specification.md`: a model specification
+* `changelog.md`: a model Keep a Changelog changelog
 
 ## Test it
 
@@ -230,11 +230,11 @@ Model documents in `skills/better-md-skill/examples/`:
 ## Contributing
 
 1. Read the [test harness docs](tests/README.md) to understand how behavior is verified.
-2. Add or improve a fixture in `tests/` for any behavioral change — every capability claim should be covered by a case.
+2. Add or improve a fixture in `tests/` for any behavioral change; every capability claim should be covered by a case.
 3. Keep reference modules focused and sourced: cite the authoritative standard each rule comes from.
 4. Never add fabricated URLs, icons, badges, or assets to examples or fixtures.
 5. Run the suite before opening a pull request.
 
 ## License
 
-[MIT](./LICENSE) — see [LICENSE](./LICENSE) for the full text.
+[MIT](./LICENSE). See [LICENSE](./LICENSE) for the full text.
