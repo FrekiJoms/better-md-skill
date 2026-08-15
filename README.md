@@ -1,6 +1,7 @@
 <p align="center">
   <a href="https://github.com/FrekiJoms/better-md-skill"><img src="https://img.shields.io/github/package-json/v/FrekiJoms/better-md-skill" alt="Version"></a>
   <a href="tests/README.md"><img src="https://img.shields.io/badge/test%20suite-51%20cases-blue" alt="Test Suite"></a>
+  <a href="tests/README.md"><img src="https://img.shields.io/badge/success%20rate-100%25-brightgreen" alt="Success Rate"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/github/license/FrekiJoms/better-md-skill" alt="License"></a>
   <a href="https://github.com/FrekiJoms/better-md-skill"><img src="https://img.shields.io/github/languages/top/FrekiJoms/better-md-skill" alt="Top Language"></a>
   <a href="https://github.com/FrekiJoms/better-md-skill"><img src="https://img.shields.io/github/stars/FrekiJoms/better-md-skill" alt="GitHub Stars"></a>
