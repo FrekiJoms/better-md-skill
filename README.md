@@ -30,15 +30,18 @@ Copy `skills/better-md-skill/` into your agent's skill directory. Supported targ
 
 Three ways to install:
 
+1. Directly from GitHub via npm (recommended) — installs the skill into all supported agents automatically (postinstall hook)
+
 ```bash
-# 1. Directly from GitHub via npm (recommended) — installs the skill into
-#    all supported agents automatically (postinstall hook)
 npm install -g github:FrekiJoms/better-md-skill
-
-# 2. From a local checkout via the skills CLI
+```
+2. From a local checkout via the skills CLI
+```bash
 npx skills add ./better-md-skill --skill better-md-skill -g --copy -y
+```
 
-# 3. From GitHub via the skills CLI
+3. From GitHub via the skills CLI
+```bash
 npx skills add FrekiJoms/better-md-skill --skill better-md-skill -g --copy -y
 ```
 
