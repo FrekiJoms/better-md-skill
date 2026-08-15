@@ -15,11 +15,18 @@ keywords:
 estimated_reading_time: 3
 ---
 
-## Better-md-skill
+<p align="center">
+  [![Version](https://img.shields.io/github/package-json/v/FrekiJoms/better-md-skill)](https://github.com/FrekiJoms/better-md-skill)
+  [![Test Suite](https://img.shields.io/badge/test%20suite-51%20cases-blue)](tests/README.md)
+  [![License](https://img.shields.io/github/license/FrekiJoms/better-md-skill)](./LICENSE)
+  [![Top Language](https://img.shields.io/github/languages/top/FrekiJoms/better-md-skill)](https://github.com/FrekiJoms/better-md-skill)
+  [![GitHub Stars](https://img.shields.io/github/stars/FrekiJoms/better-md-skill)](https://github.com/FrekiJoms/better-md-skill)
+  <br>
+  [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-standard-blue)](https://agentskills.io/)
+  [![Node.js](https://img.shields.io/badge/node-%3E%3D18-339933)](package.json)
+</p>
 
-[![License](https://img.shields.io/github/license/FrekiJoms/better-md-skill)](./LICENSE)
-[![Top Language](https://img.shields.io/github/languages/top/FrekiJoms/better-md-skill)](https://github.com/FrekiJoms/better-md-skill)
-[![Agent Skills](https://img.shields.io/badge/Agent%20Skills-standard-blue)](https://agentskills.io/)
+## Better-md-skill
 
 Better-md-skill is a Markdown documentation engineering skill for AI coding agents. It creates, improves, restructures, audits, and validates Markdown — READMEs, API docs, tutorials, specifications, and changelogs — with CommonMark and GitHub Flavored Markdown awareness, markdownlint-inspired checks, GitHub documentation style, evidence-based reading psychology, and visual README design.
 
