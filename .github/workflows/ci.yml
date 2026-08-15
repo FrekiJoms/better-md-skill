@@ -16,7 +16,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
-          cache: npm
-      - run: npm ci
+      - run: npm ci --foreground-scripts --no-audit --no-fund
       - run: node --check scripts/install.mjs
       - run: node scripts/install.mjs --dry-run
