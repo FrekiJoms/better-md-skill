@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Better MD Skill — Documentation Intelligence</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+  :root {
+    --bg: #080d19;
+    --blue: #2563eb;
+    --blue-soft: #4f86ea;
+    --violet-mute: #8a7fa8;
+    --orange: #e27432;
+    --navy-2: #0b1220;
+    --text: #f1f5fb;
+    --text-dim: #8fa0bd;
+    --text-soft: #c3cfE3;
+    --border: rgba(148, 163, 184, .14);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    width: 1600px; height: 900px; overflow: hidden;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Atmospheric glows — soft, blended into the dark */
+  .bg {
+    position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    overflow: hidden;
+  }
+  .glow {
+    position: absolute; border-radius: 50%; filter: blur(120px);
+  }
+  .glow.blue {
+    width: 760px; height: 760px; left: -160px; top: 120px;
+    background: radial-gradient(circle, rgba(37, 99, 235, .34), transparent 62%);
+  }
+  .glow.orange {
+    width: 720px; height: 720px; right: -170px; top: 180px;
+    background: radial-gradient(circle, rgba(198, 95, 43, .26), transparent 62%);
+  }
+  .glow.violet {
+    width: 560px; height: 460px; left: 50%; transform: translateX(-50%); top: 480px;
+    background: radial-gradient(circle, rgba(94, 84, 142, .16), transparent 65%);
+  }
+
+  .page {
+    position: relative; z-index: 1;
+    width: 1600px; height: 900px;
+    display: flex; flex-direction: column;
+    padding: 32px 48px 26px;
+  }
+
+  /* ── Navigation ─────────────────────────────────────────── */
+  .nav {
+    flex: 0 0 84px;
+    display: flex; align-items: center;
+    padding: 0 22px 0 26px;
+    background: rgba(13, 20, 36, .72);
+    border: 1px solid var(--border);
+    border-radius: 26px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, .45), inset 0 1px 0 rgba(255, 255, 255, .04);
+    backdrop-filter: blur(14px);
+  }
+
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .brand-mark {
+    width: 52px; height: 52px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: radial-gradient(circle at 30% 25%, rgba(37,99,235,.28), rgba(13,20,36,.9) 70%);
+    border: 1px solid rgba(148,163,184,.22);
+    box-shadow: 0 0 26px rgba(37,99,235,.22), inset 0 0 14px rgba(37,99,235,.10);
+  }
+  .brand-name { font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 700; letter-spacing: -.2px; }
+
+  .nav-links { display: flex; gap: 46px; margin: 0 auto; }
+  .nav-links a {
+    font-size: 15.5px; font-weight: 500; color: var(--text-dim);
+    text-decoration: none; letter-spacing: .1px;
+  }
+  .nav-links a:hover { color: var(--text-soft); }
+
+  .nav-right { display: flex; align-items: center; gap: 16px; }
+  .icon-btn {
+    width: 44px; height: 44px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(148,163,184,.06); border: 1px solid var(--border);
+    color: var(--text-dim); cursor: pointer;
+  }
+  .github-pill {
+    display: flex; align-items: center; gap: 9px;
+    height: 44px; padding: 0 18px;
+    border-radius: 14px;
+    background: rgba(148,163,184,.07); border: 1px solid var(--border);
+    font-family: 'JetBrains Mono', monospace; font-size: 14.5px; font-weight: 500;
+    color: var(--text-soft);
+  }
+  .github-pill .star { display: flex; align-items: center; gap: 6px; color: var(--text-dim); }
+
+  .btn-primary {
+    display: flex; align-items: center; gap: 10px;
+    height: 46px; padding: 0 24px;
+    border-radius: 15px;
+    background: linear-gradient(180deg, #2f6bff, #1d4fd7);
+    border: 1px solid rgba(120, 165, 255, .45);
+    box-shadow: 0 10px 30px rgba(37, 99, 235, .38), inset 0 1px 0 rgba(255,255,255,.22);
+    color: #fff; font-size: 15px; font-weight: 600; cursor: pointer;
+  }
+
+  /* ── Tool pills ─────────────────────────────────────────── */
+  .tools {
+    flex: 0 0 46px;
+    display: flex; justify-content: center; gap: 14px;
+    margin-top: 18px;
+  }
+  .tool {
+    display: flex; align-items: center; gap: 9px;
+    height: 46px; padding: 0 18px;
+    border-radius: 15px;
+    background: rgba(13, 20, 36, .66);
+    border: 1px solid var(--border);
+    font-size: 14.5px; font-weight: 500; color: var(--text-soft);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.03);
+  }
+  .tool svg { width: 17px; height: 17px; }
+
+  /* ── Hero ───────────────────────────────────────────────── */
+  .hero {
+    flex: 0 0 auto;
+    display: flex; flex-direction: column; align-items: center;
+    margin-top: 30px; text-align: center;
+  }
+  .eyebrow {
+    font-size: 13px; font-weight: 600;
+    letter-spacing: 5.5px; text-transform: uppercase;
+    color: #7d8fb3;
+  }
+  .eyebrow em { font-style: normal; color: #4f86ea; }
+
+  h1 {
+    margin-top: 15px;
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    font-size: 74px; font-weight: 700;
+    line-height: .96; letter-spacing: -2.6px;
+  }
+  h1 .grad {
+    background: linear-gradient(90deg, #2563eb 0%, #4f86ea 35%, #8a7fa8 65%, #e27432 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+  }
+  h1 .white { color: #f6f8fd; }
+
+  .desc {
+    margin-top: 17px;
+    max-width: 760px;
+    font-size: 19.5px; font-weight: 400; line-height: 1.5;
+    color: var(--text-dim);
+  }
+
+  .terminal {
+    margin-top: 21px;
+    width: 560px; height: 54px;
+    display: flex; align-items: center;
+    padding: 0 22px; gap: 12px;
+    border-radius: 14px;
+    background: #060b16;
+    border: 1px solid rgba(148,163,184,.16);
+    box-shadow: 0 14px 40px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.04);
+    font-family: 'JetBrains Mono', monospace; font-size: 16.5px;
+  }
+  .terminal .dollar { color: var(--orange); font-weight: 600; }
+  .terminal .cmd { color: #e6ebf5; }
+  .terminal .cursor {
+    width: 9px; height: 20px; border-radius: 2px;
+    background: rgba(230,235,245,.55);
+  }
+  .terminal .dot { margin-left: auto; display: flex; gap: 6px; }
+  .terminal .dot i { width: 9px; height: 9px; border-radius: 50%; background: #1a2740; }
+
+  .cta-row { display: flex; gap: 18px; margin-top: 19px; }
+  .cta {
+    width: 250px; height: 58px;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    border-radius: 19px;
+    font-size: 17px; font-weight: 600; cursor: pointer;
+  }
+  .cta.primary {
+    background: linear-gradient(180deg, #2f6bff, #1d4fd7);
+    border: 1px solid rgba(120,165,255,.45);
+    box-shadow: 0 14px 40px rgba(37,99,235,.42), inset 0 1px 0 rgba(255,255,255,.22);
+    color: #fff;
+  }
+  .cta.secondary {
+    background: rgba(13,20,36,.6);
+    border: 1px solid rgba(148,163,184,.2);
+    color: var(--text-soft);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+  }
+
+  /* ── Documentation preview ──────────────────────────────── */
+  .preview {
+    flex: 1 1 auto; min-height: 0;
+    margin-top: 22px;
+    display: flex; flex-direction: column;
+    border-radius: 26px;
+    background: linear-gradient(160deg, rgba(17,25,44,.92), rgba(10,16,30,.94));
+    border: 1px solid rgba(148,163,184,.14);
+    box-shadow: 0 30px 80px rgba(0,0,0,.55),
+                0 0 60px rgba(37,99,235,.08),
+                0 0 44px rgba(198,95,43,.06),
+                inset 0 1px 0 rgba(255,255,255,.05);
+    padding: 24px 30px 26px;
+  }
+
+  .pv-head { display: flex; align-items: baseline; gap: 14px; }
+  .pv-title { font-family: 'Space Grotesk', sans-serif; font-size: 21px; font-weight: 700; letter-spacing: -.3px; }
+  .pv-sub { font-size: 13.5px; color: var(--text-dim); }
+
+  .pv-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 18px; }
+  .pv-card {
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    background: rgba(13,20,36,.62);
+    border: 1px solid rgba(148,163,184,.12);
+  }
+  .pv-card .ic {
+    width: 38px; height: 38px; border-radius: 11px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .pv-card .ic.blue { background: rgba(37,99,235,.16); color: #4f86ea; }
+  .pv-card .ic.violet { background: rgba(138,127,168,.16); color: #a99ec9; }
+  .pv-card .ic.orange { background: rgba(226,116,50,.16); color: #e27432; }
+  .pv-card .nm { font-size: 14.5px; font-weight: 600; color: var(--text-soft); }
+  .pv-card .ds { font-size: 11.5px; color: var(--text-dim); margin-top: 2px; }
+
+  .pv-grid { display: grid; grid-template-columns: 1.06fr 1fr 1.06fr; gap: 16px; margin-top: 16px; min-height: 0; }
+
+  .pv-callout {
+    display: flex; align-items: center; gap: 12px;
+    padding: 0 18px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(37,99,235,.14), rgba(13,20,36,.5));
+    border: 1px solid rgba(79,134,234,.28);
+    border-left: 4px solid #4f86ea;
+    font-size: 14.5px; font-weight: 600; color: #dbe6fb;
+  }
+  .pv-callout svg { width: 20px; height: 20px; color: #4f86ea; flex-shrink: 0; }
+
+  .pv-code {
+    display: flex; flex-direction: column;
+    border-radius: 14px;
+    background: #060b16;
+    border: 1px solid rgba(148,163,184,.14);
+    padding: 13px 16px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .pv-code .head {
+    display: flex; align-items: center; gap: 6px;
+    margin-bottom: 9px;
+  }
+  .pv-code .head i { width: 8px; height: 8px; border-radius: 50%; background: #1c2a44; }
+  .pv-code .head i:first-child { background: #3b2a22; }
+  .pv-code .head i:nth-child(2) { background: #2a323f; }
+  .pv-code .head .lang { margin-left: 6px; font-size: 10px; color: #54637f; }
+  .pv-code .h { color: #9db8ef; font-weight: 600; font-size: 12.5px; }
+  .pv-code .c { color: #e6ebf5; font-size: 12.5px; margin-top: 5px; }
+  .pv-code .c .acc { color: #4f86ea; }
+
+  .pv-side { display: flex; flex-direction: column; gap: 16px; min-height: 0; }
+  .pv-table {
+    flex: 1 1 auto;
+    border-radius: 14px;
+    background: rgba(13,20,36,.62);
+    border: 1px solid rgba(148,163,184,.12);
+    padding: 12px 16px;
+  }
+  .pv-table .cap { font-size: 10px; font-weight: 600; letter-spacing: 1.6px; color: #5d6c8c; text-transform: uppercase; margin-bottom: 8px; }
+  .pv-table table { width: 100%; border-collapse: collapse; }
+  .pv-table td { font-size: 12.5px; padding: 5px 0; color: var(--text-soft); }
+  .pv-table td:last-child { text-align: right; }
+  .pv-table .status { color: #34d399; display: inline-flex; align-items: center; gap: 6px; font-size: 12px; }
+  .pv-table .status svg { width: 12px; height: 12px; }
+  .pv-table tr + tr td { border-top: 1px solid rgba(148,163,184,.08); }
+
+  .pv-checks {
+    flex: 1 1 auto;
+    border-radius: 14px;
+    background: rgba(13,20,36,.62);
+    border: 1px solid rgba(148,163,184,.12);
+    padding: 12px 16px;
+  }
+  .pv-checks .cap { font-size: 10px; font-weight: 600; letter-spacing: 1.6px; color: #5d6c8c; text-transform: uppercase; margin-bottom: 8px; }
+  .pv-checks li {
+    list-style: none; display: flex; align-items: center; gap: 9px;
+    font-size: 12.5px; color: var(--text-soft); padding: 5px 0;
+  }
+  .pv-checks li svg { width: 14px; height: 14px; color: #34d399; }
+</style>
+</head>
+<body>
+
+<div class="bg">
+  <div class="glow blue"></div>
+  <div class="glow orange"></div>
+  <div class="glow violet"></div>
+</div>
+
+<div class="page">
+
+  <!-- Navigation -->
+  <header class="nav">
+    <div class="brand">
+      <div class="brand-mark">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+          <rect x="5" y="5" width="13" height="16" rx="3" fill="rgba(79,134,234,.14)" stroke="#4f86ea" stroke-width="1.4"/>
+          <rect x="9" y="3" width="13" height="16" rx="3" fill="rgba(226,116,50,.12)" stroke="#e27432" stroke-width="1.4"/>
+          <path d="M12 11.5l1.2 2.4 2.4 1.2-2.4 1.2L12 18.7l-1.2-2.4-2.4-1.2 2.4-1.2z" fill="#f1f5fb" opacity=".9"/>
+        </svg>
+      </div>
+      <div class="brand-name">Better MD Skill</div>
+    </div>
+
+    <nav class="nav-links">
+      <a href="#">Features</a>
+      <a href="#">Examples</a>
+      <a href="#">Styles</a>
+      <a href="#">Documentation</a>
+    </nav>
+
+    <div class="nav-right">
+      <div class="icon-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </div>
+      <div class="github-pill">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.15c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.53-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.16 1.18a11 11 0 0 1 5.76 0c2.19-1.49 3.15-1.18 3.15-1.18.63 1.59.24 2.76.12 3.05.74.81 1.18 1.83 1.18 3.09 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .3.2.67.8.55A10.51 10.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/>
+        </svg>
+        <span class="star">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#e8b04b">
+            <path d="M12 2l2.9 6.26 6.85.83-5.06 4.68 1.32 6.77L12 17.27l-6.01 3.27 1.32-6.77L2.25 9.09l6.85-.83z"/>
+          </svg>
+          117.0k
+        </span>
+      </div>
+      <button class="btn-primary">
+        Get Started
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M13 6l6 6-6 6"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Tool pills -->
+  <div class="tools">
+    <div class="tool">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#d97757" stroke-width="1.8" stroke-linecap="round"><path d="M12 3l1.8 5.2 5.2 1.8-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg>
+      Claude Code
+    </div>
+    <div class="tool">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#e5e7eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l14 9-7 2-3 7z"/></svg>
+      Cursor
+    </div>
+    <div class="tool">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round"><path d="M3 9c3 0 3 6 6 6s3-6 6-6 3 6 6 6"/><path d="M3 15c3 0 3-6 6-6s3 6 6 6 3-6 6-6"/></svg>
+      Windsurf
+    </div>
+    <div class="tool">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><ellipse cx="12" cy="12" rx="9" ry="4"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(120 12 12)"/></svg>
+      Antigravity
+    </div>
+    <div class="tool">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/><path d="M9.5 13h.01M14.5 13h.01M9.5 16h.01M14.5 16h.01"/></svg>
+      GitHub Copilot
+    </div>
+    <div class="tool">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M7 9l4 3-4 3"/><path d="M12 15h5"/></svg>
+      Kiro
+    </div>
+    <div class="tool">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7l10 10M17 7L7 17"/><circle cx="12" cy="12" r="9"/></svg>
+      Codex
+    </div>
+    <div class="tool">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h12v6l-4 2v5l-4 3v-8L6 10z"/></svg>
+      Qoder
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="eyebrow">Better Markdown for <em>Developers</em></div>
+    <h1>
+      <span class="grad">Better MD Skill</span><br>
+      <span class="white">Documentation Intelligence</span>
+    </h1>
+    <p class="desc">
+      Transform plain Markdown into polished, structured documentation with better typography,
+      hierarchy, callouts, code blocks, tables, diagrams, and visual organization.
+    </p>
+
+    <div class="terminal">
+      <span class="dollar">$</span>
+      <span class="cmd">better-md init</span>
+      <span class="cursor"></span>
+      <span class="dot"><i></i><i></i><i></i></span>
+    </div>
+
+    <div class="cta-row">
+      <div class="cta primary">
+        Get Started
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </div>
+      <div class="cta secondary">View Examples</div>
+    </div>
+  </section>
+
+  <!-- Documentation preview -->
+  <section class="preview">
+    <div class="pv-head">
+      <span class="pv-title">Better MD Skill</span>
+      <span class="pv-sub">Transform ordinary Markdown into beautiful documentation.</span>
+    </div>
+
+    <div class="pv-cards">
+      <div class="pv-card">
+        <div class="ic blue">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <div>
+          <div class="nm">Structured Layouts</div>
+          <div class="ds">Hierarchy that guides the eye</div>
+        </div>
+      </div>
+      <div class="pv-card">
+        <div class="ic violet">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg>
+        </div>
+        <div>
+          <div class="nm">Visual Hierarchy</div>
+          <div class="ds">Typography with intent</div>
+        </div>
+      </div>
+      <div class="pv-card">
+        <div class="ic orange">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M2 12h4M18 12h4M12 2v4M12 18v4"/></svg>
+        </div>
+        <div>
+          <div class="nm">Developer Friendly</div>
+          <div class="ds">Built for every AI agent</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pv-grid">
+      <div class="pv-callout">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M12 12v4"/></svg>
+        Better Markdown, better presentation.
+      </div>
+
+      <div class="pv-code">
+        <div class="head">
+          <i></i><i></i><i></i>
+          <span class="lang">markdown</span>
+        </div>
+        <div class="h"># Installation</div>
+        <div class="c"><span class="acc">npm install</span> better-md-skill</div>
+      </div>
+
+      <div class="pv-side">
+        <div class="pv-table">
+          <div class="cap">Feature status</div>
+          <table>
+            <tr><td>Callouts</td><td><span class="status"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Ready</span></td></tr>
+            <tr><td>Tables</td><td><span class="status"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Ready</span></td></tr>
+            <tr><td>Diagrams</td><td><span class="status"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Ready</span></td></tr>
+          </table>
+        </div>
+        <div class="pv-checks">
+          <div class="cap">Quality gate</div>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Responsive layouts</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Consistent typography</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Better readability</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
