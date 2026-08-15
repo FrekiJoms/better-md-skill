@@ -33,7 +33,7 @@ Three ways to install:
 1. Directly from GitHub via npm (recommended) — installs the skill into all supported agents automatically (postinstall hook)
 
 ```bash
-npm install -g github:FrekiJoms/better-md-skill
+npm install -g https://github.com/FrekiJoms/better-md-skill/archive/refs/heads/main.tar.gz
 ```
 2. From a local checkout via the skills CLI
 ```bash
@@ -45,7 +45,7 @@ npx skills add ./better-md-skill --skill better-md-skill -g --copy -y
 npx skills add FrekiJoms/better-md-skill --skill better-md-skill -g --copy -y
 ```
 
-The npm route installs the package and runs its `postinstall` hook, which copies `skills/better-md-skill/` into every supported agent's personal skill directory — no extra steps. From a checkout you can run the same installer manually:
+The npm route downloads the repository tarball and runs its `postinstall` hook, which copies `skills/better-md-skill/` into every supported agent's personal skill directory — no extra steps. Use the tarball URL above: it downloads the full repository without npm's git-dependency packaging, which is unreliable on some npm 11.x versions (files can be dropped from the extracted package). From a checkout you can run the same installer manually:
 
 ```bash
 npm run install:skills          # install to all supported agents
