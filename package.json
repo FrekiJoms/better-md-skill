@@ -1,0 +1,33 @@
+{
+  "name": "better-md-skill",
+  "version": "1.0.0",
+  "description": "An intelligent Markdown documentation engineering skill for AI coding agents (Agent Skills standard). Improves, restructures, formats, audits, and validates Markdown — READMEs, API docs, tutorials, specs, changelogs — across Claude Code, OpenCode, Codex, Gemini CLI, Cursor, GitHub Copilot, and any SKILL.md-compatible agent.",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "skills/",
+    "scripts/"
+  ],
+  "keywords": [
+    "agent-skills",
+    "skill",
+    "markdown",
+    "readme",
+    "documentation",
+    "commonmark",
+    "gfm",
+    "markdownlint",
+    "claude-code",
+    "opencode",
+    "codex",
+    "gemini-cli",
+    "cursor"
+  ],
+  "scripts": {
+    "install:skills": "node scripts/install.mjs",
+    "install:skills:dry": "node scripts/install.mjs --dry-run"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -46,5 +46,11 @@ The fixtures exercise the capability matrix:
 | Already-good handling | 09, 24 |
 | Renderer awareness | 15, 16 |
 | Visual assets | 17–23 |
+| Visual suggestion — screenshots | 25, 27, 32, 34 |
+| Visual suggestion — diagrams | 26, 28, 34 |
+| Visual suggestion — no duplication | 29, 30, 33 |
+| Visual suggestion — nothing needed | 31 |
+| Visual suggestion — broken refs | 32 |
+| Capability detection | 35, 36 |
 | Content preservation | all (integrity check applies everywhere) |
 | Large documents | 10 (API reference is deliberately long) |

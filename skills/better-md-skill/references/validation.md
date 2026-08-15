@@ -30,6 +30,12 @@ Read the complete edited file, not just the diff. The document is the source of 
 - Image paths point at existing files (relative paths checked against the repo).
 - External image/icon/badge URLs use documented patterns (Devicon, Simple Icons, Shields.io, official assets) or were verified live.
 - No fabricated assets or URLs — if an asset cannot be confirmed, either remove the reference, use a verified alternative, or report the gap.
+- **Visual suggestions** (when the Visual Asset Review ran):
+  - Every `VISUAL SUGGESTION` is an HTML comment — invisible in rendered output.
+  - Every suggestion sits immediately after the content it illustrates, never at the document bottom.
+  - Every suggestion is typed (`SCREENSHOT`, `DIAGRAM`, `ARCHITECTURE`, `WORKFLOW`, `GIF`, `VIDEO`, `UI_PREVIEW`, `BEFORE_AFTER`, `CHART`, `ILLUSTRATION`, `LOGO`, `TECH_STACK`) and specific (what / where / details / why).
+  - No suggestion duplicates a visual that already exists in the document or repo.
+  - No suggestion is hiding a fake image reference: a suggestion may mention a recommended filename only with the explicit note that the file does not exist yet.
 
 ### 5. Renderer-specific validation
 

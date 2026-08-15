@@ -28,6 +28,18 @@ One row per fixture. Expected behavior states what the skill **must** do, **must
 | 22 | `22-excessive-visuals.md` | Edit | Reduce excessive decoration (banners, emoji dividers, redundant badges) to a restrained level without losing meaning. |
 | 23 | `23-invalid-external-assets.md` | Audit | Flag broken/unverifiable external image URLs; never fabricate replacements; remove or report rather than invent. |
 | 24 | `24-already-good-commonmark.md` | Audit | Portable, already-good document: no changes, no GFM features added. |
+| 25 | `25-dashboard-screenshot.md` | Improve | Dashboard section needs a visual: leave a specific `VISUAL SUGGESTION [SCREENSHOT]` right after the Dashboard paragraph — with what to show, which details, and why. No fake image reference. |
+| 26 | `26-architecture-diagram.md` | Improve | Architecture needs a diagram: leave a specific `VISUAL SUGGESTION [ARCHITECTURE]` after the components/data-flow content. No invented diagram URL. |
+| 27 | `27-tutorial-gui-screenshots.md` | Improve | GUI tutorial steps (installer wizard, profile screen, connections form) each get a specific `SCREENSHOT` suggestion with fields to highlight. Plain CLI steps get none. |
+| 28 | `28-workflow-diagram.md` | Improve | Multi-step pipeline gets a `VISUAL SUGGESTION [WORKFLOW]` showing validation → fulfillment → completion, including the exception path. |
+| 29 | `29-existing-screenshots.md` | Audit | Existing screenshots already cover the visuals: NO new suggestions for those sections. |
+| 30 | `30-existing-tech-icons.md` | Audit | Existing tech icon row already covers the stack: NO `TECH_STACK` suggestion, no duplicate icons. |
+| 31 | `31-no-visual-opportunities.md` | Audit | Simple CLI tool: NO suggestions anywhere; report `Visual Review: No additional visuals recommended.` |
+| 32 | `32-broken-image-reference.md` | Edit | Remove/replace the broken image reference (file does not exist); may convert it into a `VISUAL SUGGESTION [SCREENSHOT]`. Never keep a broken ref, never fake a path. |
+| 33 | `33-poor-alt-text.md` | Edit | Fix/add meaningful alt text on the existing image; do NOT add duplicate suggestions for sections the image already covers. |
+| 34 | `34-multiple-visual-opportunities.md` | Improve | Leave four distinct suggestions (WORKFLOW, SCREENSHOT/UI_PREVIEW, ARCHITECTURE, SCREENSHOT) each at the correct location, each specific; none vague or bottom-dumped. |
+| 35 | `35-capability-no-visuals.md` | Improve | Run in an environment with no visual tooling: suggestion mode. A specific `VISUAL SUGGESTION` at the Preview section; report states suggestions were inserted. |
+| 36 | `36-capability-with-visuals.md` | Improve | Run in an environment with capture + asset creation and user consent: create the real asset, verify it exists, then reference it with alt text. Must NOT leave a suggestion for a created asset. |
 
 ## Cross-cutting expectations (apply to every case)
 
@@ -35,6 +47,9 @@ One row per fixture. Expected behavior states what the skill **must** do, **must
 2. **No fabrication**: no invented URLs, icons, badges, image paths, or facts.
 3. **Cleaner than original**: the result renders correctly and is not worse than the input.
 4. **Minimal intervention**: the skill does not rewrite documents that are already good (cases 09, 24 prove this).
+5. **Visual review always runs**: every case ends with a Visual Review outcome (report or suggestion set), even when nothing is recommended (case 31).
+6. **Suggestions are invisible and local**: every `VISUAL SUGGESTION` is an HTML comment placed immediately after the content it illustrates — never at the document bottom (case 34 proves multiple placements).
+7. **No duplication**: no suggestion where an existing visual already covers the need (cases 29, 30, 33).
 
 ## Recording results
 
