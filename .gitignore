@@ -1,0 +1,33 @@
+# OS metadata
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor caches
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temp files
+*.tmp
+*.bak
+*.log
+
+# Build artifacts
+dist/
+build/
+coverage/
+node_modules/
+
+# Secrets and environment files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# MCP-generated temporary data
+.mcp-auth/
+.tool-output/
