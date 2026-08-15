@@ -21,8 +21,10 @@
   ],
   "scripts": {
     "postinstall": "node scripts/install.mjs",
+    "preuninstall": "node scripts/install.mjs --uninstall",
     "install:skills": "node scripts/install.mjs",
-    "install:skills:dry": "node scripts/install.mjs --dry-run"
+    "install:skills:dry": "node scripts/install.mjs --dry-run",
+    "uninstall:skills": "node scripts/install.mjs --uninstall"
   },
   "engines": {
     "node": ">=18"

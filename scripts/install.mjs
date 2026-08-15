@@ -17,6 +17,9 @@
  *   node scripts/install.mjs --dry-run show what would happen (no download)
  *   node scripts/install.mjs --agents opencode claude-code
  *   node scripts/install.mjs --list    list supported agents and their paths
+ *   node scripts/install.mjs --uninstall
+ *                                      remove the skill from all agents (best-effort,
+ *                                      never fails — safe for npm preuninstall)
  *
  * Env:
  *   BETTER_MD_SKILL_SOURCE_URL   override the download fallback URL
@@ -48,9 +51,10 @@ const AGENTS = [
 function parseArgs(argv) {
   const dry = argv.includes("--dry-run");
   const list = argv.includes("--list");
+  const uninstall = argv.includes("--uninstall");
   const agentsIdx = argv.indexOf("--agents");
   const only = agentsIdx >= 0 ? argv.slice(agentsIdx + 1) : [];
-  return { dry, list, only };
+  return { dry, list, uninstall, only };
 }
 
 function skillDirFor(agent) {
@@ -150,13 +154,59 @@ async function downloadSkillSource() {
   return target;
 }
 
+function removeSkill(agent, dry) {
+  const target = skillDirFor(agent);
+  if (!existsSync(target)) {
+    if (!dry) console.log(`[skip] ${agent.name} (not installed)`);
+    return true;
+  }
+  if (dry) {
+    console.log(`[dry-run] would remove ${target}`);
+    return true;
+  }
+  try {
+    rmSync(target, { recursive: true, force: true });
+    console.log(`[ok] ${agent.name} removed -> ${target}`);
+  } catch (err) {
+    console.error(`[fail] ${agent.name} -> ${target} (${err.message})`);
+    return false;
+  }
+  return true;
+}
+
+function uninstallAll(dry, targets) {
+  if (dry) {
+    console.log(`[dry-run] would uninstall from ${targets.length} agents`);
+  } else {
+    console.log(`[uninstall] removing better-md-skill from ${targets.length} agents`);
+  }
+  let removed = 0;
+  for (const agent of targets) {
+    if (removeSkill(agent, dry)) removed++;
+  }
+  if (!dry) {
+    console.log(`[done] uninstalled from ${removed}/${targets.length} agents.`);
+  }
+}
+
 async function main() {
-  const { dry, list, only } = parseArgs(process.argv.slice(2));
+  const { dry, list, uninstall, only } = parseArgs(process.argv.slice(2));
 
   if (list) {
     console.log("Supported agents and their personal skill directories:");
     for (const agent of AGENTS) {
       console.log(`  ${agent.name.padEnd(16)} ${agent.dir}`);
+    }
+    return;
+  }
+
+  const targets = only.length > 0 ? AGENTS.filter((a) => only.includes(a.name)) : AGENTS;
+
+  if (uninstall) {
+    try {
+      uninstallAll(dry, targets);
+    } catch (err) {
+      console.error(`[error] ${err.message}`);
     }
     return;
   }
@@ -174,7 +224,6 @@ async function main() {
     downloaded = true;
   }
 
-  const targets = only.length > 0 ? AGENTS.filter((a) => only.includes(a.name)) : AGENTS;
   console.log(dry ? `[dry-run] source: ${source}` : `[install] source: ${source}`);
 
   let installed = 0;

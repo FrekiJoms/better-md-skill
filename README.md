@@ -63,6 +63,7 @@ Improve this README using Better-md-skill.
 | Goal | Go here |
 | --- | --- |
 | Install into your agent | [Install](#install) |
+| Remove the skill | [Uninstall](#uninstall) |
 | Improve a document | [Use it](#use-it) |
 | See what the skill improves | [What it improves](#what-it-improves) |
 | Understand visual suggestions | [How visual suggestions work](#how-visual-suggestions-work) |
@@ -110,6 +111,24 @@ The `postinstall` hook copies `skills/better-md-skill/` into every supported age
 > ```
 >
 > For OpenCode you can also point `skills.paths` at this repository in `opencode.json` (scanned recursively for `**/SKILL.md`). Restart the agent's session after installing — skills are not hot-reloaded.
+
+## Uninstall
+
+Remove the skill and its copies from every supported agent:
+
+```bash
+npm uninstall -g better-md-skill
+```
+
+The `preuninstall` hook deletes the `better-md-skill` folder from each agent's personal skill directory. From a checkout, or if the hook did not run, remove the copies manually:
+
+```bash
+node scripts/install.mjs --uninstall
+npm run uninstall:skills          # same command
+node scripts/install.mjs --uninstall --agents opencode claude-code
+```
+
+Or delete the folders directly — `~/.config/opencode/skills/better-md-skill`, `~/.claude/skills/better-md-skill`, `~/.agents/skills/better-md-skill`, `~/.codex/skills/better-md-skill`, `~/.gemini/skills/better-md-skill`, `~/.config/github-copilot/skills/better-md-skill`.
 
 ## Use it
 
