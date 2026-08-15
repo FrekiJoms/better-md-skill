@@ -1,12 +1,12 @@
 <p align="center">
-  [![Version](https://img.shields.io/github/package-json/v/FrekiJoms/better-md-skill)](https://github.com/FrekiJoms/better-md-skill)
-  [![Test Suite](https://img.shields.io/badge/test%20suite-51%20cases-blue)](tests/README.md)
-  [![License](https://img.shields.io/github/license/FrekiJoms/better-md-skill)](./LICENSE)
-  [![Top Language](https://img.shields.io/github/languages/top/FrekiJoms/better-md-skill)](https://github.com/FrekiJoms/better-md-skill)
-  [![GitHub Stars](https://img.shields.io/github/stars/FrekiJoms/better-md-skill)](https://github.com/FrekiJoms/better-md-skill)
+  <a href="https://github.com/FrekiJoms/better-md-skill"><img src="https://img.shields.io/github/package-json/v/FrekiJoms/better-md-skill" alt="Version"></a>
+  <a href="tests/README.md"><img src="https://img.shields.io/badge/test%20suite-51%20cases-blue" alt="Test Suite"></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/github/license/FrekiJoms/better-md-skill" alt="License"></a>
+  <a href="https://github.com/FrekiJoms/better-md-skill"><img src="https://img.shields.io/github/languages/top/FrekiJoms/better-md-skill" alt="Top Language"></a>
+  <a href="https://github.com/FrekiJoms/better-md-skill"><img src="https://img.shields.io/github/stars/FrekiJoms/better-md-skill" alt="GitHub Stars"></a>
   <br>
-  [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-standard-blue)](https://agentskills.io/)
-  [![Node.js](https://img.shields.io/badge/node-%3E%3D18-339933)](package.json)
+  <a href="https://agentskills.io/"><img src="https://img.shields.io/badge/Agent%20Skills-standard-blue" alt="Agent Skills"></a>
+  <a href="package.json"><img src="https://img.shields.io/badge/node-%3E%3D18-339933" alt="Node.js"></a>
 </p>
 
 <img width="960" height="392" alt="image" src="https://github.com/user-attachments/assets/bb087159-eedd-4e7b-8e3b-d9143a1c1a7c" />
