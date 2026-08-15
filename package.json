@@ -4,10 +4,6 @@
   "description": "An intelligent Markdown documentation engineering skill for AI coding agents (Agent Skills standard). Improves, restructures, formats, audits, and validates Markdown — READMEs, API docs, tutorials, specs, changelogs — across Claude Code, OpenCode, Codex, Gemini CLI, Cursor, GitHub Copilot, and any SKILL.md-compatible agent.",
   "license": "MIT",
   "type": "module",
-  "files": [
-    "skills/",
-    "scripts/"
-  ],
   "keywords": [
     "agent-skills",
     "skill",
