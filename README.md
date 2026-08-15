@@ -1,3 +1,16 @@
+<p align="center">
+  [![Version](https://img.shields.io/github/package-json/v/FrekiJoms/better-md-skill)](https://github.com/FrekiJoms/better-md-skill)
+  [![Test Suite](https://img.shields.io/badge/test%20suite-51%20cases-blue)](tests/README.md)
+  [![License](https://img.shields.io/github/license/FrekiJoms/better-md-skill)](./LICENSE)
+  [![Top Language](https://img.shields.io/github/languages/top/FrekiJoms/better-md-skill)](https://github.com/FrekiJoms/better-md-skill)
+  [![GitHub Stars](https://img.shields.io/github/stars/FrekiJoms/better-md-skill)](https://github.com/FrekiJoms/better-md-skill)
+  <br>
+  [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-standard-blue)](https://agentskills.io/)
+  [![Node.js](https://img.shields.io/badge/node-%3E%3D18-339933)](package.json)
+</p>
+
+<img width="960" height="392" alt="image" src="https://github.com/user-attachments/assets/bb087159-eedd-4e7b-8e3b-d9143a1c1a7c" />
+
 ---
 title: Better-md-skill
 description: Markdown documentation engineering skill for AI coding agents — creates, improves, restructures, audits, and validates READMEs, API docs, tutorials, and changelogs across every SKILL.md-compatible agent
@@ -14,17 +27,6 @@ keywords:
   - markdownlint
 estimated_reading_time: 3
 ---
-
-<p align="center">
-  [![Version](https://img.shields.io/github/package-json/v/FrekiJoms/better-md-skill)](https://github.com/FrekiJoms/better-md-skill)
-  [![Test Suite](https://img.shields.io/badge/test%20suite-51%20cases-blue)](tests/README.md)
-  [![License](https://img.shields.io/github/license/FrekiJoms/better-md-skill)](./LICENSE)
-  [![Top Language](https://img.shields.io/github/languages/top/FrekiJoms/better-md-skill)](https://github.com/FrekiJoms/better-md-skill)
-  [![GitHub Stars](https://img.shields.io/github/stars/FrekiJoms/better-md-skill)](https://github.com/FrekiJoms/better-md-skill)
-  <br>
-  [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-standard-blue)](https://agentskills.io/)
-  [![Node.js](https://img.shields.io/badge/node-%3E%3D18-339933)](package.json)
-</p>
 
 ## Better-md-skill
 
