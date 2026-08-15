@@ -24,6 +24,7 @@
     "cursor"
   ],
   "scripts": {
+    "postinstall": "node scripts/install.mjs",
     "install:skills": "node scripts/install.mjs",
     "install:skills:dry": "node scripts/install.mjs --dry-run"
   },
