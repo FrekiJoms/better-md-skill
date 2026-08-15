@@ -44,6 +44,8 @@ One row per fixture. Expected behavior states what the skill **must** do, **must
 | 38 | `38-reading-psychology-crowding.md` | Edit | Decorative marks cut (excessive bold, emoji, ALL CAPS, `!!!`), heading punctuation fixed, inline code limited to real identifiers. Distinct elements look distinct. |
 | 39 | `39-reading-psychology-comparison-table.md` | Edit | The plan comparison becomes a table (storage, transfer, support, limits, backups); prose chunks stay short. No invented plan facts. |
 | 40 | `40-reading-psychology-consistent-patterns.md` | Edit | Same content type uses the same pattern everywhere (procedures numbered, lists introduced); one name per thing (`config` vs `settings` unified); duplicate install instructions consolidated. No content loss. |
+| 41 | `41-hve-style-readme.md` | Audit | Enhanced project-scale README (frontmatter, purpose paragraph, scope CAUTION, Where to Start, Choose Your Path, goal-first navigation tables): already good — make no changes (or only trivial fixes). |
+| 42 | `42-goal-first-navigation.md` | Edit | Add a goal-first Navigate table (`| Goal | Go here |`) for the documented intents, a Choose Your Path section (new user → getting started, team lead → standards, contributor → plugin API), and Where to Start steps. Preserve every fact; no invented doc paths beyond the ones already referenced. |
 
 ## Cross-cutting expectations (apply to every case)
 

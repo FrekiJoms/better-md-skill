@@ -25,6 +25,25 @@ Purpose: get a visitor from zero to productive in under a minute.
 
 Rules: no wall-of-text intros, no marketing fluff, no redundant "what is X" for famous technologies. Screenshots belong near the top (after features) where they show the thing working.
 
+### README, enhanced (project-scale)
+
+The baseline pattern above gets visitors productive. For project-scale repositories — multiple docs, teams, operational tooling — add these structures (the pattern behind high-quality large-scale READMEs):
+
+- **Frontmatter** (optional, when the repo has a docs culture): YAML frontmatter with `title`, `description`, `keywords`, etc. GitHub renders it as a metadata table at the top of the page.
+- **Badge row** directly under the H1: CI status, license, docs, quality. Only real, verified badges — never fabricated CI or release badges.
+- **Purpose paragraph**: one paragraph — what it is, when to use it, what it provides. Follow with one "Use it when…" sentence and a short "It provides:" bullet list.
+- **Scope callout**: a `CAUTION` or `NOTE` stating what the project is and is not (stable platform vs. rapidly evolving framework). Honest scoping builds trust and prevents misuse.
+- **Where to Start**: numbered steps from zero to first useful result, then `TIP` callouts for alternative entry points (CLI, plugin, extension).
+- **Choose Your Path**: one short entry per reader persona — new user, team lead, contributor — each with exactly one link. Never a paragraph per persona.
+- **Navigate This Repository**: a two-column goal table (`| Goal | Go here |`) mapping every reader intent to its exact path. This is the single highest-value navigation pattern; keep every row a verb-first goal.
+- **Documentation**: a guide table (`| Guide | Description |`) for deeper docs, plus a docs-site link when one exists.
+- **Operational sections** (labels, workflows, governance, security): short tables, only when the repo actually has them.
+- **Contributing**: link to the guide, open issues, and discussions — three links, no prose.
+- **License**: link, plus short paragraphs only for license clarifications (third-party content).
+- **Footer**: optional one-line signature; never a fake "crafted by" claim.
+
+Rules: every table is goal-first (reader intent → destination); one link per intent, never repeated; badges truthful; callouts sparse (one scope CAUTION plus TIPs); each section earns its place — omit sections the repo does not need.
+
 ## API documentation
 
 Purpose: allow a developer to use an interface without reading source code.
