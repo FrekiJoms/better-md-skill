@@ -11,23 +11,6 @@
 
 <img width="960" height="392" alt="image" src="https://github.com/user-attachments/assets/bb087159-eedd-4e7b-8e3b-d9143a1c1a7c" />
 
----
-title: Better-md-skill
-description: Markdown documentation engineering skill for AI coding agents — creates, improves, restructures, audits, and validates READMEs, API docs, tutorials, and changelogs across every SKILL.md-compatible agent
-author: FrekiJoms
-ms.date: 2026-08-15
-ms.topic: overview
-keywords:
-  - markdown
-  - agent-skills
-  - readme
-  - documentation
-  - gfm
-  - commonmark
-  - markdownlint
-estimated_reading_time: 3
----
-
 ## Better-md-skill
 
 Better-md-skill is a Markdown documentation engineering skill for AI coding agents. It creates, improves, restructures, audits, and validates Markdown — READMEs, API docs, tutorials, specifications, and changelogs — with CommonMark and GitHub Flavored Markdown awareness, markdownlint-inspired checks, GitHub documentation style, evidence-based reading psychology, and visual README design.
