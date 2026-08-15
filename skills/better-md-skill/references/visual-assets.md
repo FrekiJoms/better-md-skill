@@ -158,7 +158,9 @@ Do not assume capabilities. But do not under-assume either: writing an SVG file 
 
 ## Authoring SVG assets
 
-SVG is text — when the document is GitHub-targeted and a banner, logo, icon set, or simple diagram is missing, **create a real SVG file** instead of suggesting one. This is the preferred path; `VISUAL SUGGESTION` is for assets the agent genuinely cannot produce (photographs, screenshots, GIFs, videos, complex illustrations).
+SVG is text — when the document is GitHub-targeted and a banner, logo, icon set, or simple diagram is **missing**, create a real SVG file instead of suggesting one. This is the preferred path; `VISUAL SUGGESTION` is for assets the agent genuinely cannot produce (photographs, screenshots, GIFs, videos, complex illustrations).
+
+**Never replace or convert existing images.** If the document already has an image — screenshot, photo, logo, diagram, any format (PNG, JPEG, GIF, WebP, SVG) — keep it exactly as it is: do not swap it for an authored SVG, do not re-create it, do not "upgrade" it. SVG authoring applies only to assets that do not exist yet. An existing image that is broken or clearly wrong may be flagged for replacement in a `VISUAL SUGGESTION` comment — never silently replaced.
 
 Rules:
 

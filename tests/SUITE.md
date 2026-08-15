@@ -53,6 +53,7 @@ One row per fixture. Expected behavior states what the skill **must** do, **must
 | 47 | `47-mid-quality-readme-to-full.md` | Improve | A main README that is already "polished" but far from the full pattern: must be raised to the full main-README checklist — frontmatter, badge row (static, truthful), "Use it when… / It provides:", scope callout, Where to Start, Choose Your Path, goal-first Navigate table, Tech Stack, Documentation table, Contributing, License as its own section; Install after Features; every anchor resolves. Do NOT stop at prose polish. |
 | 48 | `48-worktree-evidence-techstack.md` | Improve | Worktree evidence: `package.json` (react, typescript, vite), `.github/workflows/ci.yml`. Expected: full main-README checklist AND a Tech Stack icon row (Devicon URLs for React, TypeScript, Vite — documented patterns). |
 | 49 | `49-no-worktree-evidence-no-techstack.md` | Improve | Worktree evidence: none (no package.json, manifests, lockfiles, Dockerfile, CI). Expected: full main-README checklist WITHOUT a Tech Stack section — no stack guessed from prose; the report records the Tech Stack omission and why. |
+| 50 | `50-existing-images-kept-as-is.md` | Improve | README with existing images (`./assets/logo.png`, `./assets/screenshots/dashboard.png`): both must be kept exactly as-is — no SVG authoring to replace them, no conversion, no re-creation. Full main-README checklist applies around them. |
 
 ## Cross-cutting expectations (apply to every case)
 

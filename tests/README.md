@@ -58,5 +58,6 @@ The fixtures exercise the capability matrix:
 | Main README full pattern | 45, 47 |
 | No README pattern in non-README docs | 46 |
 | Tech Stack evidence gating | 48, 49 |
+| Existing images kept as-is | 50 |
 | Content preservation | all (integrity check applies everywhere) |
 | Large documents | 10 (API reference is deliberately long) |

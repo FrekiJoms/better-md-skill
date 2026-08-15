@@ -87,7 +87,7 @@ Run the Visual Asset Review from `references/visual-assets.md` — **after** the
 For each section, ask: "Would a visual asset make this section significantly easier to understand?"
 
 - **No** → do nothing.
-- **Yes + it is a banner, logo, icon set, or simple diagram** → author a real SVG file in the repository, verify it exists, then reference it (SVG is text — any agent that writes Markdown can write SVG; see `visual-assets`).
+- **Yes + it is a banner, logo, icon set, or simple diagram and the asset is missing** → author a real SVG file in the repository, verify it exists, then reference it (SVG is text — any agent that writes Markdown can write SVG; see `visual-assets`). **Never replace or convert an existing image** — existing images stay exactly as they are.
 - **Yes + the agent can create/insert the asset** (screenshots via capture, images via generation) → create or insert it, only when the user asked for visuals and the tools/permissions allow.
 - **Yes + the agent cannot create/insert the asset** → insert a precise `VISUAL SUGGESTION` comment at the exact location.
 
@@ -133,6 +133,7 @@ One final Markdown validation pass, then return the improved document plus a con
 - No reordering of paragraphs, list items, or sections without a structural reason that you state.
 - No renaming of anchors/headings that would break internal or external links, unless you also fix the links.
 - No alteration of code, commands, identifiers, file paths, or technical values.
+- No replacement or conversion of existing images: existing screenshots, photos, logos, diagrams, or any image format stay exactly as they are — never swapped for an authored SVG or re-created.
 - No fabricated or "placeholder-looking-real" URLs, images, icons, or badges. If an asset is missing, either reference an existing repo asset, use a documented real URL pattern, or leave a `VISUAL SUGGESTION` comment — never invent an asset or a path for one.
 
 ## Output behavior
