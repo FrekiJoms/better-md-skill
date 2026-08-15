@@ -7,15 +7,16 @@
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
   :root {
-    --bg: #080d19;
-    --blue: #2563eb;
-    --blue-soft: #4f86ea;
-    --violet-mute: #8a7fa8;
-    --orange: #e27432;
-    --navy-2: #0b1220;
-    --text: #f1f5fb;
-    --text-dim: #8fa0bd;
-    --text-soft: #c3cfE3;
+    --bg: #090d15;
+    --surface: #101624;
+    --brand: #6d5cf6;
+    --brand-light: #8b7bff;
+    --violet: #a78bfa;
+    --amber: #f5a524;
+    --amber-soft: #f0a34a;
+    --text: #eef2fb;
+    --text-dim: #8b9bb8;
+    --text-soft: #c6d0e6;
     --border: rgba(148, 163, 184, .14);
   }
 
@@ -29,25 +30,20 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Atmospheric glows — soft, blended into the dark */
-  .bg {
-    position: absolute; inset: 0; pointer-events: none; z-index: 0;
-    overflow: hidden;
-  }
-  .glow {
-    position: absolute; border-radius: 50%; filter: blur(120px);
-  }
-  .glow.blue {
+  /* Atmospheric glows — brand palette, blended into the dark */
+  .bg { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+  .glow { position: absolute; border-radius: 50%; filter: blur(120px); }
+  .glow.indigo {
     width: 760px; height: 760px; left: -160px; top: 120px;
-    background: radial-gradient(circle, rgba(37, 99, 235, .34), transparent 62%);
+    background: radial-gradient(circle, rgba(109, 92, 246, .32), transparent 62%);
   }
-  .glow.orange {
+  .glow.amber {
     width: 720px; height: 720px; right: -170px; top: 180px;
-    background: radial-gradient(circle, rgba(198, 95, 43, .26), transparent 62%);
+    background: radial-gradient(circle, rgba(242, 158, 52, .20), transparent 62%);
   }
   .glow.violet {
     width: 560px; height: 460px; left: 50%; transform: translateX(-50%); top: 480px;
-    background: radial-gradient(circle, rgba(94, 84, 142, .16), transparent 65%);
+    background: radial-gradient(circle, rgba(138, 115, 245, .14), transparent 65%);
   }
 
   .page {
@@ -62,7 +58,7 @@
     flex: 0 0 84px;
     display: flex; align-items: center;
     padding: 0 22px 0 26px;
-    background: rgba(13, 20, 36, .72);
+    background: rgba(15, 21, 36, .72);
     border: 1px solid var(--border);
     border-radius: 26px;
     box-shadow: 0 18px 50px rgba(0, 0, 0, .45), inset 0 1px 0 rgba(255, 255, 255, .04);
@@ -73,20 +69,13 @@
   .brand-mark {
     width: 52px; height: 52px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    background: radial-gradient(circle at 30% 25%, rgba(37,99,235,.28), rgba(13,20,36,.9) 70%);
+    background: radial-gradient(circle at 30% 25%, rgba(109,92,246,.30), rgba(15,21,36,.9) 70%);
     border: 1px solid rgba(148,163,184,.22);
-    box-shadow: 0 0 26px rgba(37,99,235,.22), inset 0 0 14px rgba(37,99,235,.10);
+    box-shadow: 0 0 26px rgba(109,92,246,.25), inset 0 0 14px rgba(109,92,246,.10);
   }
   .brand-name { font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 700; letter-spacing: -.2px; }
 
-  .nav-links { display: flex; gap: 46px; margin: 0 auto; }
-  .nav-links a {
-    font-size: 15.5px; font-weight: 500; color: var(--text-dim);
-    text-decoration: none; letter-spacing: .1px;
-  }
-  .nav-links a:hover { color: var(--text-soft); }
-
-  .nav-right { display: flex; align-items: center; gap: 16px; }
+  .nav-right { display: flex; align-items: center; gap: 16px; margin-left: auto; }
   .icon-btn {
     width: 44px; height: 44px; border-radius: 14px;
     display: flex; align-items: center; justify-content: center;
@@ -107,41 +96,48 @@
     display: flex; align-items: center; gap: 10px;
     height: 46px; padding: 0 24px;
     border-radius: 15px;
-    background: linear-gradient(180deg, #2f6bff, #1d4fd7);
-    border: 1px solid rgba(120, 165, 255, .45);
-    box-shadow: 0 10px 30px rgba(37, 99, 235, .38), inset 0 1px 0 rgba(255,255,255,.22);
+    background: linear-gradient(180deg, #7a68ff, #5748d8);
+    border: 1px solid rgba(150, 135, 255, .45);
+    box-shadow: 0 10px 30px rgba(109, 92, 246, .40), inset 0 1px 0 rgba(255,255,255,.22);
     color: #fff; font-size: 15px; font-weight: 600; cursor: pointer;
   }
 
   /* ── Tool pills ─────────────────────────────────────────── */
   .tools {
-    flex: 0 0 46px;
-    display: flex; justify-content: center; gap: 14px;
+    flex: 0 0 44px;
+    display: flex; justify-content: center; align-items: center; gap: 10px;
     margin-top: 18px;
   }
   .tool {
-    display: flex; align-items: center; gap: 9px;
-    height: 46px; padding: 0 18px;
-    border-radius: 15px;
-    background: rgba(13, 20, 36, .66);
+    display: flex; align-items: center; gap: 8px;
+    height: 44px; padding: 0 13px;
+    border-radius: 14px;
+    background: rgba(15, 21, 36, .66);
     border: 1px solid var(--border);
-    font-size: 14.5px; font-weight: 500; color: var(--text-soft);
+    font-size: 13.5px; font-weight: 500; color: var(--text-soft);
     box-shadow: inset 0 1px 0 rgba(255,255,255,.03);
+    white-space: nowrap;
   }
-  .tool svg { width: 17px; height: 17px; }
+  .tool img { width: 17px; height: 17px; border-radius: 4px; }
+  .tool.more {
+    background: transparent;
+    border: 1px dashed rgba(148,163,184,.30);
+    color: var(--text-dim);
+    font-family: 'JetBrains Mono', monospace; font-size: 12.5px;
+  }
 
   /* ── Hero ───────────────────────────────────────────────── */
   .hero {
     flex: 0 0 auto;
     display: flex; flex-direction: column; align-items: center;
-    margin-top: 30px; text-align: center;
+    margin-top: 28px; text-align: center;
   }
   .eyebrow {
     font-size: 13px; font-weight: 600;
     letter-spacing: 5.5px; text-transform: uppercase;
     color: #7d8fb3;
   }
-  .eyebrow em { font-style: normal; color: #4f86ea; }
+  .eyebrow em { font-style: normal; color: var(--brand-light); }
 
   h1 {
     margin-top: 15px;
@@ -150,7 +146,7 @@
     line-height: .96; letter-spacing: -2.6px;
   }
   h1 .grad {
-    background: linear-gradient(90deg, #2563eb 0%, #4f86ea 35%, #8a7fa8 65%, #e27432 100%);
+    background: linear-gradient(90deg, #6d5cf6 0%, #8b7bff 35%, #a78bfa 65%, #f5a524 100%);
     -webkit-background-clip: text; background-clip: text;
     -webkit-text-fill-color: transparent; color: transparent;
   }
@@ -165,16 +161,16 @@
 
   .terminal {
     margin-top: 21px;
-    width: 560px; height: 54px;
+    width: 1020px; height: 54px;
     display: flex; align-items: center;
     padding: 0 22px; gap: 12px;
     border-radius: 14px;
-    background: #060b16;
+    background: #060a13;
     border: 1px solid rgba(148,163,184,.16);
     box-shadow: 0 14px 40px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.04);
-    font-family: 'JetBrains Mono', monospace; font-size: 16.5px;
+    font-family: 'JetBrains Mono', monospace; font-size: 15px;
   }
-  .terminal .dollar { color: var(--orange); font-weight: 600; }
+  .terminal .dollar { color: var(--amber); font-weight: 600; }
   .terminal .cmd { color: #e6ebf5; }
   .terminal .cursor {
     width: 9px; height: 20px; border-radius: 2px;
@@ -191,13 +187,13 @@
     font-size: 17px; font-weight: 600; cursor: pointer;
   }
   .cta.primary {
-    background: linear-gradient(180deg, #2f6bff, #1d4fd7);
-    border: 1px solid rgba(120,165,255,.45);
-    box-shadow: 0 14px 40px rgba(37,99,235,.42), inset 0 1px 0 rgba(255,255,255,.22);
+    background: linear-gradient(180deg, #7a68ff, #5748d8);
+    border: 1px solid rgba(150,135,255,.45);
+    box-shadow: 0 14px 40px rgba(109,92,246,.42), inset 0 1px 0 rgba(255,255,255,.22);
     color: #fff;
   }
   .cta.secondary {
-    background: rgba(13,20,36,.6);
+    background: rgba(15,21,36,.6);
     border: 1px solid rgba(148,163,184,.2);
     color: var(--text-soft);
     box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
@@ -209,11 +205,11 @@
     margin-top: 22px;
     display: flex; flex-direction: column;
     border-radius: 26px;
-    background: linear-gradient(160deg, rgba(17,25,44,.92), rgba(10,16,30,.94));
+    background: linear-gradient(160deg, rgba(19,25,45,.92), rgba(11,16,30,.94));
     border: 1px solid rgba(148,163,184,.14);
     box-shadow: 0 30px 80px rgba(0,0,0,.55),
-                0 0 60px rgba(37,99,235,.08),
-                0 0 44px rgba(198,95,43,.06),
+                0 0 60px rgba(109,92,246,.08),
+                0 0 44px rgba(242,158,52,.06),
                 inset 0 1px 0 rgba(255,255,255,.05);
     padding: 24px 30px 26px;
   }
@@ -227,16 +223,16 @@
     display: flex; align-items: center; gap: 12px;
     padding: 14px 16px;
     border-radius: 14px;
-    background: rgba(13,20,36,.62);
+    background: rgba(15,21,36,.62);
     border: 1px solid rgba(148,163,184,.12);
   }
   .pv-card .ic {
     width: 38px; height: 38px; border-radius: 11px; flex-shrink: 0;
     display: flex; align-items: center; justify-content: center;
   }
-  .pv-card .ic.blue { background: rgba(37,99,235,.16); color: #4f86ea; }
-  .pv-card .ic.violet { background: rgba(138,127,168,.16); color: #a99ec9; }
-  .pv-card .ic.orange { background: rgba(226,116,50,.16); color: #e27432; }
+  .pv-card .ic.indigo { background: rgba(109,92,246,.16); color: #8b7bff; }
+  .pv-card .ic.violet { background: rgba(167,139,250,.15); color: #b6a3ff; }
+  .pv-card .ic.amber { background: rgba(245,165,36,.15); color: #f5a524; }
   .pv-card .nm { font-size: 14.5px; font-weight: 600; color: var(--text-soft); }
   .pv-card .ds { font-size: 11.5px; color: var(--text-dim); margin-top: 2px; }
 
@@ -246,17 +242,17 @@
     display: flex; align-items: center; gap: 12px;
     padding: 0 18px;
     border-radius: 14px;
-    background: linear-gradient(135deg, rgba(37,99,235,.14), rgba(13,20,36,.5));
-    border: 1px solid rgba(79,134,234,.28);
-    border-left: 4px solid #4f86ea;
-    font-size: 14.5px; font-weight: 600; color: #dbe6fb;
+    background: linear-gradient(135deg, rgba(109,92,246,.15), rgba(15,21,36,.5));
+    border: 1px solid rgba(139,123,255,.28);
+    border-left: 4px solid #8b7bff;
+    font-size: 14.5px; font-weight: 600; color: #e2ddfb;
   }
-  .pv-callout svg { width: 20px; height: 20px; color: #4f86ea; flex-shrink: 0; }
+  .pv-callout svg { width: 20px; height: 20px; color: #8b7bff; flex-shrink: 0; }
 
   .pv-code {
     display: flex; flex-direction: column;
     border-radius: 14px;
-    background: #060b16;
+    background: #060a13;
     border: 1px solid rgba(148,163,184,.14);
     padding: 13px 16px;
     font-family: 'JetBrains Mono', monospace;
@@ -266,18 +262,18 @@
     margin-bottom: 9px;
   }
   .pv-code .head i { width: 8px; height: 8px; border-radius: 50%; background: #1c2a44; }
-  .pv-code .head i:first-child { background: #3b2a22; }
+  .pv-code .head i:first-child { background: #4a3a20; }
   .pv-code .head i:nth-child(2) { background: #2a323f; }
   .pv-code .head .lang { margin-left: 6px; font-size: 10px; color: #54637f; }
-  .pv-code .h { color: #9db8ef; font-weight: 600; font-size: 12.5px; }
-  .pv-code .c { color: #e6ebf5; font-size: 12.5px; margin-top: 5px; }
-  .pv-code .c .acc { color: #4f86ea; }
+  .pv-code .h { color: #b3aef9; font-weight: 600; font-size: 12.5px; }
+  .pv-code .c { color: #e6ebf5; font-size: 10.5px; margin-top: 6px; line-height: 1.55; word-break: break-all; }
+  .pv-code .c .acc { color: #8b7bff; }
 
   .pv-side { display: flex; flex-direction: column; gap: 16px; min-height: 0; }
   .pv-table {
     flex: 1 1 auto;
     border-radius: 14px;
-    background: rgba(13,20,36,.62);
+    background: rgba(15,21,36,.62);
     border: 1px solid rgba(148,163,184,.12);
     padding: 12px 16px;
   }
@@ -292,7 +288,7 @@
   .pv-checks {
     flex: 1 1 auto;
     border-radius: 14px;
-    background: rgba(13,20,36,.62);
+    background: rgba(15,21,36,.62);
     border: 1px solid rgba(148,163,184,.12);
     padding: 12px 16px;
   }
@@ -307,8 +303,8 @@
 <body>
 
 <div class="bg">
-  <div class="glow blue"></div>
-  <div class="glow orange"></div>
+  <div class="glow indigo"></div>
+  <div class="glow amber"></div>
   <div class="glow violet"></div>
 </div>
 
@@ -319,20 +315,13 @@
     <div class="brand">
       <div class="brand-mark">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-          <rect x="5" y="5" width="13" height="16" rx="3" fill="rgba(79,134,234,.14)" stroke="#4f86ea" stroke-width="1.4"/>
-          <rect x="9" y="3" width="13" height="16" rx="3" fill="rgba(226,116,50,.12)" stroke="#e27432" stroke-width="1.4"/>
-          <path d="M12 11.5l1.2 2.4 2.4 1.2-2.4 1.2L12 18.7l-1.2-2.4-2.4-1.2 2.4-1.2z" fill="#f1f5fb" opacity=".9"/>
+          <rect x="5" y="5" width="13" height="16" rx="3" fill="rgba(139,123,255,.14)" stroke="#8b7bff" stroke-width="1.4"/>
+          <rect x="9" y="3" width="13" height="16" rx="3" fill="rgba(245,165,36,.12)" stroke="#f5a524" stroke-width="1.4"/>
+          <path d="M12 11.5l1.2 2.4 2.4 1.2-2.4 1.2L12 18.7l-1.2-2.4-2.4-1.2 2.4-1.2z" fill="#eef2fb" opacity=".9"/>
         </svg>
       </div>
       <div class="brand-name">Better MD Skill</div>
     </div>
-
-    <nav class="nav-links">
-      <a href="#">Features</a>
-      <a href="#">Examples</a>
-      <a href="#">Styles</a>
-      <a href="#">Documentation</a>
-    </nav>
 
     <div class="nav-right">
       <div class="icon-btn">
@@ -362,37 +351,18 @@
 
   <!-- Tool pills -->
   <div class="tools">
-    <div class="tool">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#d97757" stroke-width="1.8" stroke-linecap="round"><path d="M12 3l1.8 5.2 5.2 1.8-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg>
-      Claude Code
-    </div>
-    <div class="tool">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#e5e7eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l14 9-7 2-3 7z"/></svg>
-      Cursor
-    </div>
-    <div class="tool">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round"><path d="M3 9c3 0 3 6 6 6s3-6 6-6 3 6 6 6"/><path d="M3 15c3 0 3-6 6-6s3 6 6 6 3-6 6-6"/></svg>
-      Windsurf
-    </div>
-    <div class="tool">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><ellipse cx="12" cy="12" rx="9" ry="4"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(120 12 12)"/></svg>
-      Antigravity
-    </div>
-    <div class="tool">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/><path d="M9.5 13h.01M14.5 13h.01M9.5 16h.01M14.5 16h.01"/></svg>
-      GitHub Copilot
-    </div>
-    <div class="tool">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M7 9l4 3-4 3"/><path d="M12 15h5"/></svg>
-      Kiro
-    </div>
-    <div class="tool">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7l10 10M17 7L7 17"/><circle cx="12" cy="12" r="9"/></svg>
-      Codex
-    </div>
-    <div class="tool">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h12v6l-4 2v5l-4 3v-8L6 10z"/></svg>
-      Qoder
+    <div class="tool"><img src="agent-icons/claude.png" alt="">Claude Code</div>
+    <div class="tool"><img src="agent-icons/cursor.png" alt="">Cursor</div>
+    <div class="tool"><img src="agent-icons/windsurf.png" alt="">Windsurf</div>
+    <div class="tool"><img src="agent-icons/antigravity.png" alt="">Antigravity</div>
+    <div class="tool"><img src="agent-icons/copilot.png" alt="">GitHub Copilot</div>
+    <div class="tool"><img src="agent-icons/kiro.png" alt="">Kiro</div>
+    <div class="tool"><img src="agent-icons/codex.png" alt="">Codex</div>
+    <div class="tool"><img src="agent-icons/qoder.png" alt="">Qoder</div>
+    <div class="tool"><img src="agent-icons/opencode.png" alt="">OpenCode</div>
+    <div class="tool more">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+      +99 more
     </div>
   </div>
 
@@ -410,7 +380,7 @@
 
     <div class="terminal">
       <span class="dollar">$</span>
-      <span class="cmd">better-md init</span>
+      <span class="cmd">npm install -g https://github.com/FrekiJoms/better-md-skill/archive/refs/heads/main.tar.gz</span>
       <span class="cursor"></span>
       <span class="dot"><i></i><i></i><i></i></span>
     </div>
@@ -433,7 +403,7 @@
 
     <div class="pv-cards">
       <div class="pv-card">
-        <div class="ic blue">
+        <div class="ic indigo">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
         </div>
         <div>
@@ -451,7 +421,7 @@
         </div>
       </div>
       <div class="pv-card">
-        <div class="ic orange">
+        <div class="ic amber">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M2 12h4M18 12h4M12 2v4M12 18v4"/></svg>
         </div>
         <div>
@@ -470,10 +440,10 @@
       <div class="pv-code">
         <div class="head">
           <i></i><i></i><i></i>
-          <span class="lang">markdown</span>
+          <span class="lang">bash</span>
         </div>
-        <div class="h"># Installation</div>
-        <div class="c"><span class="acc">npm install</span> better-md-skill</div>
+        <div class="h"># Install</div>
+        <div class="c"><span class="acc">npm install -g</span> https://github.com/FrekiJoms/better-md-skill/archive/refs/heads/main.tar.gz</div>
       </div>
 
       <div class="pv-side">
