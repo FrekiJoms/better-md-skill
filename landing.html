@@ -7,17 +7,17 @@
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
   :root {
-    --bg: #090d15;
-    --surface: #101624;
-    --brand: #6d5cf6;
-    --brand-light: #8b7bff;
-    --violet: #a78bfa;
-    --amber: #f5a524;
-    --amber-soft: #f0a34a;
-    --text: #eef2fb;
-    --text-dim: #8b9bb8;
-    --text-soft: #c6d0e6;
-    --border: rgba(148, 163, 184, .14);
+    --bg: #0e0a08;
+    --surface: #17100c;
+    --brand: #ff6b2b;
+    --brand-light: #ff8f55;
+    --flame: #ef3a1c;
+    --flame-deep: #d2250f;
+    --gold: #ffa14d;
+    --text: #fdf4ee;
+    --text-dim: #a89b93;
+    --text-soft: #e8ddd5;
+    --border: rgba(255, 170, 130, .15);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -30,20 +30,20 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Atmospheric glows — brand palette, blended into the dark */
+  /* Atmospheric glows — flame palette, blended into the dark */
   .bg { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
   .glow { position: absolute; border-radius: 50%; filter: blur(120px); }
-  .glow.indigo {
+  .glow.orange {
     width: 760px; height: 760px; left: -160px; top: 120px;
-    background: radial-gradient(circle, rgba(109, 92, 246, .32), transparent 62%);
+    background: radial-gradient(circle, rgba(255, 107, 43, .30), transparent 62%);
   }
-  .glow.amber {
+  .glow.flame {
     width: 720px; height: 720px; right: -170px; top: 180px;
-    background: radial-gradient(circle, rgba(242, 158, 52, .20), transparent 62%);
+    background: radial-gradient(circle, rgba(226, 45, 20, .22), transparent 62%);
   }
-  .glow.violet {
+  .glow.gold {
     width: 560px; height: 460px; left: 50%; transform: translateX(-50%); top: 480px;
-    background: radial-gradient(circle, rgba(138, 115, 245, .14), transparent 65%);
+    background: radial-gradient(circle, rgba(255, 140, 70, .12), transparent 65%);
   }
 
   .page {
@@ -58,7 +58,7 @@
     flex: 0 0 84px;
     display: flex; align-items: center;
     padding: 0 22px 0 26px;
-    background: rgba(15, 21, 36, .72);
+    background: rgba(23, 16, 12, .72);
     border: 1px solid var(--border);
     border-radius: 26px;
     box-shadow: 0 18px 50px rgba(0, 0, 0, .45), inset 0 1px 0 rgba(255, 255, 255, .04);
@@ -69,9 +69,9 @@
   .brand-mark {
     width: 52px; height: 52px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    background: radial-gradient(circle at 30% 25%, rgba(109,92,246,.30), rgba(15,21,36,.9) 70%);
-    border: 1px solid rgba(148,163,184,.22);
-    box-shadow: 0 0 26px rgba(109,92,246,.25), inset 0 0 14px rgba(109,92,246,.10);
+    background: radial-gradient(circle at 30% 25%, rgba(255,107,43,.30), rgba(23,16,12,.9) 70%);
+    border: 1px solid rgba(255,170,130,.22);
+    box-shadow: 0 0 26px rgba(255,90,20,.25), inset 0 0 14px rgba(255,90,20,.10);
   }
   .brand-name { font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 700; letter-spacing: -.2px; }
 
@@ -79,28 +79,18 @@
   .icon-btn {
     width: 44px; height: 44px; border-radius: 14px;
     display: flex; align-items: center; justify-content: center;
-    background: rgba(148,163,184,.06); border: 1px solid var(--border);
+    background: rgba(255,170,130,.06); border: 1px solid var(--border);
     color: var(--text-dim); cursor: pointer;
   }
   .github-pill {
     display: flex; align-items: center; gap: 9px;
     height: 44px; padding: 0 18px;
     border-radius: 14px;
-    background: rgba(148,163,184,.07); border: 1px solid var(--border);
+    background: rgba(255,170,130,.07); border: 1px solid var(--border);
     font-family: 'JetBrains Mono', monospace; font-size: 14.5px; font-weight: 500;
     color: var(--text-soft);
   }
   .github-pill .star { display: flex; align-items: center; gap: 6px; color: var(--text-dim); }
-
-  .btn-primary {
-    display: flex; align-items: center; gap: 10px;
-    height: 46px; padding: 0 24px;
-    border-radius: 15px;
-    background: linear-gradient(180deg, #7a68ff, #5748d8);
-    border: 1px solid rgba(150, 135, 255, .45);
-    box-shadow: 0 10px 30px rgba(109, 92, 246, .40), inset 0 1px 0 rgba(255,255,255,.22);
-    color: #fff; font-size: 15px; font-weight: 600; cursor: pointer;
-  }
 
   /* ── Tool pills ─────────────────────────────────────────── */
   .tools {
@@ -112,7 +102,7 @@
     display: flex; align-items: center; gap: 8px;
     height: 44px; padding: 0 13px;
     border-radius: 14px;
-    background: rgba(15, 21, 36, .66);
+    background: rgba(23, 16, 12, .66);
     border: 1px solid var(--border);
     font-size: 13.5px; font-weight: 500; color: var(--text-soft);
     box-shadow: inset 0 1px 0 rgba(255,255,255,.03);
@@ -121,7 +111,7 @@
   .tool img { width: 17px; height: 17px; border-radius: 4px; }
   .tool.more {
     background: transparent;
-    border: 1px dashed rgba(148,163,184,.30);
+    border: 1px dashed rgba(255,170,130,.30);
     color: var(--text-dim);
     font-family: 'JetBrains Mono', monospace; font-size: 12.5px;
   }
@@ -135,7 +125,7 @@
   .eyebrow {
     font-size: 13px; font-weight: 600;
     letter-spacing: 5.5px; text-transform: uppercase;
-    color: #7d8fb3;
+    color: #c9a890;
   }
   .eyebrow em { font-style: normal; color: var(--brand-light); }
 
@@ -146,11 +136,11 @@
     line-height: .96; letter-spacing: -2.6px;
   }
   h1 .grad {
-    background: linear-gradient(90deg, #6d5cf6 0%, #8b7bff 35%, #a78bfa 65%, #f5a524 100%);
+    background: linear-gradient(90deg, #ffa14d 0%, #ff6b2b 35%, #ef3a1c 65%, #d2250f 100%);
     -webkit-background-clip: text; background-clip: text;
     -webkit-text-fill-color: transparent; color: transparent;
   }
-  h1 .white { color: #f6f8fd; }
+  h1 .white { color: #fdf4ee; }
 
   .desc {
     margin-top: 17px;
@@ -165,19 +155,19 @@
     display: flex; align-items: center;
     padding: 0 22px; gap: 12px;
     border-radius: 14px;
-    background: #060a13;
-    border: 1px solid rgba(148,163,184,.16);
+    background: #0a0604;
+    border: 1px solid rgba(255,160,120,.16);
     box-shadow: 0 14px 40px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.04);
     font-family: 'JetBrains Mono', monospace; font-size: 15px;
   }
-  .terminal .dollar { color: var(--amber); font-weight: 600; }
-  .terminal .cmd { color: #e6ebf5; }
+  .terminal .dollar { color: var(--brand); font-weight: 600; }
+  .terminal .cmd { color: #f6e9e1; }
   .terminal .cursor {
     width: 9px; height: 20px; border-radius: 2px;
-    background: rgba(230,235,245,.55);
+    background: rgba(253,244,238,.55);
   }
   .terminal .dot { margin-left: auto; display: flex; gap: 6px; }
-  .terminal .dot i { width: 9px; height: 9px; border-radius: 50%; background: #1a2740; }
+  .terminal .dot i { width: 9px; height: 9px; border-radius: 50%; background: #3a2418; }
 
   .cta-row { display: flex; gap: 18px; margin-top: 19px; }
   .cta {
@@ -187,14 +177,14 @@
     font-size: 17px; font-weight: 600; cursor: pointer;
   }
   .cta.primary {
-    background: linear-gradient(180deg, #7a68ff, #5748d8);
-    border: 1px solid rgba(150,135,255,.45);
-    box-shadow: 0 14px 40px rgba(109,92,246,.42), inset 0 1px 0 rgba(255,255,255,.22);
+    background: linear-gradient(180deg, #ff7a2b, #e23412);
+    border: 1px solid rgba(255,150,90,.5);
+    box-shadow: 0 14px 40px rgba(255,80,20,.45), inset 0 1px 0 rgba(255,255,255,.22);
     color: #fff;
   }
   .cta.secondary {
-    background: rgba(15,21,36,.6);
-    border: 1px solid rgba(148,163,184,.2);
+    background: rgba(23,16,12,.6);
+    border: 1px solid rgba(255,160,120,.2);
     color: var(--text-soft);
     box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
   }
@@ -205,11 +195,11 @@
     margin-top: 22px;
     display: flex; flex-direction: column;
     border-radius: 26px;
-    background: linear-gradient(160deg, rgba(19,25,45,.92), rgba(11,16,30,.94));
-    border: 1px solid rgba(148,163,184,.14);
+    background: linear-gradient(160deg, rgba(30,20,14,.92), rgba(16,11,8,.94));
+    border: 1px solid var(--border);
     box-shadow: 0 30px 80px rgba(0,0,0,.55),
-                0 0 60px rgba(109,92,246,.08),
-                0 0 44px rgba(242,158,52,.06),
+                0 0 60px rgba(255,107,43,.08),
+                0 0 44px rgba(226,45,20,.07),
                 inset 0 1px 0 rgba(255,255,255,.05);
     padding: 24px 30px 26px;
   }
@@ -223,16 +213,16 @@
     display: flex; align-items: center; gap: 12px;
     padding: 14px 16px;
     border-radius: 14px;
-    background: rgba(15,21,36,.62);
-    border: 1px solid rgba(148,163,184,.12);
+    background: rgba(23,16,12,.62);
+    border: 1px solid rgba(255,170,130,.10);
   }
   .pv-card .ic {
     width: 38px; height: 38px; border-radius: 11px; flex-shrink: 0;
     display: flex; align-items: center; justify-content: center;
   }
-  .pv-card .ic.indigo { background: rgba(109,92,246,.16); color: #8b7bff; }
-  .pv-card .ic.violet { background: rgba(167,139,250,.15); color: #b6a3ff; }
-  .pv-card .ic.amber { background: rgba(245,165,36,.15); color: #f5a524; }
+  .pv-card .ic.orange { background: rgba(255,107,43,.16); color: #ff8f55; }
+  .pv-card .ic.flame { background: rgba(239,58,28,.15); color: #ff6a4d; }
+  .pv-card .ic.gold { background: rgba(255,161,77,.15); color: #ffa14d; }
   .pv-card .nm { font-size: 14.5px; font-weight: 600; color: var(--text-soft); }
   .pv-card .ds { font-size: 11.5px; color: var(--text-dim); margin-top: 2px; }
 
@@ -242,18 +232,18 @@
     display: flex; align-items: center; gap: 12px;
     padding: 0 18px;
     border-radius: 14px;
-    background: linear-gradient(135deg, rgba(109,92,246,.15), rgba(15,21,36,.5));
-    border: 1px solid rgba(139,123,255,.28);
-    border-left: 4px solid #8b7bff;
-    font-size: 14.5px; font-weight: 600; color: #e2ddfb;
+    background: linear-gradient(135deg, rgba(255,107,43,.15), rgba(23,16,12,.5));
+    border: 1px solid rgba(255,143,85,.28);
+    border-left: 4px solid #ff8f55;
+    font-size: 14.5px; font-weight: 600; color: #ffe4d6;
   }
-  .pv-callout svg { width: 20px; height: 20px; color: #8b7bff; flex-shrink: 0; }
+  .pv-callout svg { width: 20px; height: 20px; color: #ff8f55; flex-shrink: 0; }
 
   .pv-code {
     display: flex; flex-direction: column;
     border-radius: 14px;
-    background: #060a13;
-    border: 1px solid rgba(148,163,184,.14);
+    background: #0a0604;
+    border: 1px solid rgba(255,160,120,.14);
     padding: 13px 16px;
     font-family: 'JetBrains Mono', monospace;
   }
@@ -261,51 +251,51 @@
     display: flex; align-items: center; gap: 6px;
     margin-bottom: 9px;
   }
-  .pv-code .head i { width: 8px; height: 8px; border-radius: 50%; background: #1c2a44; }
-  .pv-code .head i:first-child { background: #4a3a20; }
-  .pv-code .head i:nth-child(2) { background: #2a323f; }
-  .pv-code .head .lang { margin-left: 6px; font-size: 10px; color: #54637f; }
-  .pv-code .h { color: #b3aef9; font-weight: 600; font-size: 12.5px; }
-  .pv-code .c { color: #e6ebf5; font-size: 10.5px; margin-top: 6px; line-height: 1.55; word-break: break-all; }
-  .pv-code .c .acc { color: #8b7bff; }
+  .pv-code .head i { width: 8px; height: 8px; border-radius: 50%; background: #2c1f18; }
+  .pv-code .head i:first-child { background: #5a3320; }
+  .pv-code .head i:nth-child(2) { background: #3a2c24; }
+  .pv-code .head .lang { margin-left: 6px; font-size: 10px; color: #7a5c48; }
+  .pv-code .h { color: #ffb38a; font-weight: 600; font-size: 12.5px; }
+  .pv-code .c { color: #f6e9e1; font-size: 10.5px; margin-top: 6px; line-height: 1.55; word-break: break-all; }
+  .pv-code .c .acc { color: #ff8f55; }
 
   .pv-side { display: flex; flex-direction: column; gap: 16px; min-height: 0; }
   .pv-table {
     flex: 1 1 auto;
     border-radius: 14px;
-    background: rgba(15,21,36,.62);
-    border: 1px solid rgba(148,163,184,.12);
+    background: rgba(23,16,12,.62);
+    border: 1px solid rgba(255,170,130,.10);
     padding: 12px 16px;
   }
-  .pv-table .cap { font-size: 10px; font-weight: 600; letter-spacing: 1.6px; color: #5d6c8c; text-transform: uppercase; margin-bottom: 8px; }
+  .pv-table .cap { font-size: 10px; font-weight: 600; letter-spacing: 1.6px; color: #8a6a58; text-transform: uppercase; margin-bottom: 8px; }
   .pv-table table { width: 100%; border-collapse: collapse; }
   .pv-table td { font-size: 12.5px; padding: 5px 0; color: var(--text-soft); }
   .pv-table td:last-child { text-align: right; }
-  .pv-table .status { color: #34d399; display: inline-flex; align-items: center; gap: 6px; font-size: 12px; }
+  .pv-table .status { color: #ffb020; display: inline-flex; align-items: center; gap: 6px; font-size: 12px; }
   .pv-table .status svg { width: 12px; height: 12px; }
-  .pv-table tr + tr td { border-top: 1px solid rgba(148,163,184,.08); }
+  .pv-table tr + tr td { border-top: 1px solid rgba(255,170,130,.08); }
 
   .pv-checks {
     flex: 1 1 auto;
     border-radius: 14px;
-    background: rgba(15,21,36,.62);
-    border: 1px solid rgba(148,163,184,.12);
+    background: rgba(23,16,12,.62);
+    border: 1px solid rgba(255,170,130,.10);
     padding: 12px 16px;
   }
-  .pv-checks .cap { font-size: 10px; font-weight: 600; letter-spacing: 1.6px; color: #5d6c8c; text-transform: uppercase; margin-bottom: 8px; }
+  .pv-checks .cap { font-size: 10px; font-weight: 600; letter-spacing: 1.6px; color: #8a6a58; text-transform: uppercase; margin-bottom: 8px; }
   .pv-checks li {
     list-style: none; display: flex; align-items: center; gap: 9px;
     font-size: 12.5px; color: var(--text-soft); padding: 5px 0;
   }
-  .pv-checks li svg { width: 14px; height: 14px; color: #34d399; }
+  .pv-checks li svg { width: 14px; height: 14px; color: #ffb020; }
 </style>
 </head>
 <body>
 
 <div class="bg">
-  <div class="glow indigo"></div>
-  <div class="glow amber"></div>
-  <div class="glow violet"></div>
+  <div class="glow orange"></div>
+  <div class="glow flame"></div>
+  <div class="glow gold"></div>
 </div>
 
 <div class="page">
@@ -315,9 +305,9 @@
     <div class="brand">
       <div class="brand-mark">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-          <rect x="5" y="5" width="13" height="16" rx="3" fill="rgba(139,123,255,.14)" stroke="#8b7bff" stroke-width="1.4"/>
-          <rect x="9" y="3" width="13" height="16" rx="3" fill="rgba(245,165,36,.12)" stroke="#f5a524" stroke-width="1.4"/>
-          <path d="M12 11.5l1.2 2.4 2.4 1.2-2.4 1.2L12 18.7l-1.2-2.4-2.4-1.2 2.4-1.2z" fill="#eef2fb" opacity=".9"/>
+          <rect x="5" y="5" width="13" height="16" rx="3" fill="rgba(255,143,85,.14)" stroke="#ff8f55" stroke-width="1.4"/>
+          <rect x="9" y="3" width="13" height="16" rx="3" fill="rgba(255,107,43,.12)" stroke="#ff6b2b" stroke-width="1.4"/>
+          <path d="M12 11.5l1.2 2.4 2.4 1.2-2.4 1.2L12 18.7l-1.2-2.4-2.4-1.2 2.4-1.2z" fill="#fdf4ee" opacity=".9"/>
         </svg>
       </div>
       <div class="brand-name">Better MD Skill</div>
@@ -340,12 +330,6 @@
           117.0k
         </span>
       </div>
-      <button class="btn-primary">
-        Get Started
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12h14M13 6l6 6-6 6"/>
-        </svg>
-      </button>
     </div>
   </header>
 
@@ -403,7 +387,7 @@
 
     <div class="pv-cards">
       <div class="pv-card">
-        <div class="ic indigo">
+        <div class="ic orange">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
         </div>
         <div>
@@ -412,7 +396,7 @@
         </div>
       </div>
       <div class="pv-card">
-        <div class="ic violet">
+        <div class="ic flame">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg>
         </div>
         <div>
@@ -421,7 +405,7 @@
         </div>
       </div>
       <div class="pv-card">
-        <div class="ic amber">
+        <div class="ic gold">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M2 12h4M18 12h4M12 2v4M12 18v4"/></svg>
         </div>
         <div>
