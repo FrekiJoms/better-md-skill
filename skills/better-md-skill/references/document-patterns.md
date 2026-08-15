@@ -12,9 +12,38 @@ Structural patterns for the document types this skill supports. Load this refere
 
 Purpose: get a visitor from zero to productive in under a minute.
 
+### README, main (full — default when creating a repo-root README)
+
+When **creating or improving the main README** (`README.md` at the repository root), apply the full pattern — the structure behind high-quality open-source READMEs:
+
+- **Frontmatter** (optional, when the repo has a docs culture): YAML frontmatter with `title`, `description`, `keywords`, `ms.date`, `ms.topic`, `estimated_reading_time`. GitHub renders it as a metadata table at the top of the page.
+- **Hero**: optional logo or banner above/inside the H1 (see `visual-assets` — author an SVG banner when one is missing).
+- **Badge row** directly under the H1: license, CI, docs, quality. Only real, verified badges — never fabricated CI or release badges; for a new project, static badges (license, "PRs welcome") are the honest default.
+- **Purpose paragraph**: one paragraph — what it is, when to use it, what it provides. Follow with one "Use it when…" sentence and a short "It provides:" bullet list.
+- **Scope callout**: a `CAUTION` or `NOTE` stating what the project is and is not. Honest scoping builds trust and prevents misuse.
+- **Where to Start**: numbered steps from zero to first useful result, then `TIP` callouts for alternative entry points.
+- **Choose Your Path**: one short entry per reader persona — new user, team lead, contributor — each with exactly one link. Never a paragraph per persona.
+- **Navigate This Repository**: a two-column goal table (`| Goal | Go here |`) mapping every reader intent to its exact path. This is the single highest-value navigation pattern; keep every row a verb-first goal and every cell an anchor link to the matching section.
+- **Tech Stack** (optional): a restrained icon row (verified, documented icon URLs such as Devicon) near the top, right after the description.
+- **Features** — what it does, in scannable bullets.
+- **Install / Quick Start** — minimal steps from nothing to running; a small code block beats prose.
+- **API / Configuration** — only if the project exposes one.
+- **Screenshots** — after the core sections; screenshots the agent cannot produce become `VISUAL SUGGESTION` comments at the exact location.
+- **Documentation**: a guide table (`| Guide | Description |`) for deeper docs, plus a docs-site link when one exists.
+- **Contact / About** (optional, when the project has them): real addresses only — no invented emails or handles.
+- **Contributing**: link to the guide, open issues, and discussions — three links, no prose.
+- **License**: link or short text.
+
+Rules: every table is goal-first (reader intent → destination); one link per intent, never repeated; link text is the section title (anchor links slugify GitHub headings); all anchors must resolve to real headings; badges truthful; callouts sparse (one scope CAUTION plus TIPs); each section earns its place — omit sections the repo does not need.
+
+**Support detection — degrade when the context cannot support the full pattern** (non-GitHub renderer, no repo, no assets directory, no docs culture): drop the badge row if badges cannot be verified; drop the hero if no asset can be created; keep the goal table and Where to Start (they work in any renderer); fall back to the minimal README pattern below rather than emitting broken or fabricated parts. Never fake a section to fill the pattern.
+
+### README, minimal (fallback)
+
+For non-GitHub targets, internal quick docs, or when the full pattern is unsupported:
+
 - `# Project name` (H1, often with a logo image above/inside it)
 - One-sentence description under the title
-- Badges (optional, restrained) and/or tech-stack icons
 - **Features** — what it does, in scannable bullets
 - **Installation** — minimal steps from nothing to running
 - **Usage** — the fastest useful example; a small code block beats prose
@@ -25,24 +54,7 @@ Purpose: get a visitor from zero to productive in under a minute.
 
 Rules: no wall-of-text intros, no marketing fluff, no redundant "what is X" for famous technologies. Screenshots belong near the top (after features) where they show the thing working.
 
-### README, enhanced (project-scale)
-
-The baseline pattern above gets visitors productive. For project-scale repositories — multiple docs, teams, operational tooling — add these structures (the pattern behind high-quality large-scale READMEs):
-
-- **Frontmatter** (optional, when the repo has a docs culture): YAML frontmatter with `title`, `description`, `keywords`, etc. GitHub renders it as a metadata table at the top of the page.
-- **Badge row** directly under the H1: CI status, license, docs, quality. Only real, verified badges — never fabricated CI or release badges.
-- **Purpose paragraph**: one paragraph — what it is, when to use it, what it provides. Follow with one "Use it when…" sentence and a short "It provides:" bullet list.
-- **Scope callout**: a `CAUTION` or `NOTE` stating what the project is and is not (stable platform vs. rapidly evolving framework). Honest scoping builds trust and prevents misuse.
-- **Where to Start**: numbered steps from zero to first useful result, then `TIP` callouts for alternative entry points (CLI, plugin, extension).
-- **Choose Your Path**: one short entry per reader persona — new user, team lead, contributor — each with exactly one link. Never a paragraph per persona.
-- **Navigate This Repository**: a two-column goal table (`| Goal | Go here |`) mapping every reader intent to its exact path. This is the single highest-value navigation pattern; keep every row a verb-first goal.
-- **Documentation**: a guide table (`| Guide | Description |`) for deeper docs, plus a docs-site link when one exists.
-- **Operational sections** (labels, workflows, governance, security): short tables, only when the repo actually has them.
-- **Contributing**: link to the guide, open issues, and discussions — three links, no prose.
-- **License**: link, plus short paragraphs only for license clarifications (third-party content).
-- **Footer**: optional one-line signature; never a fake "crafted by" claim.
-
-Rules: every table is goal-first (reader intent → destination); one link per intent, never repeated; badges truthful; callouts sparse (one scope CAUTION plus TIPs); each section earns its place — omit sections the repo does not need.
+**Scope: the full README pattern applies only to the main README.** Other document types — API documentation, tutorials, how-tos, references, specifications, architecture docs, changelogs, requirements — keep their own patterns below and never receive README-only structures (badge rows, goal-navigation tables, persona sections, tech-stack icon rows). If a non-README document has grown README-style sections, do not add to them; report the drift and leave them alone unless the user asks.
 
 ## API documentation
 
