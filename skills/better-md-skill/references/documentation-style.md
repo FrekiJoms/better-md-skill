@@ -94,6 +94,14 @@ Load this reference when improving, restructuring, or writing documentation pros
 - Write for the reader's goal, not the product's features.
 - Use the title of a section as the anchor for "see X later in this article" links.
 
+## Reading psychology
+
+Load `reading-psychology.md` alongside this reference. It adds the evidence-based layer: readers process chunks in parallel, crowding and similar-looking elements slow identification, and every decorative mark costs comprehension attention. In practice:
+
+- Headings state what the reader gets — never "Introduction to" or "Overview of" filler.
+- Prose is chunked into short paragraphs, lists, or tables; walls of text are restructured.
+- Distinct elements look distinct; decorative marks (bold, emoji, ALL CAPS) are cut, not added.
+
 ## Checklist
 
 - [ ] Sentence case headings, unique at each level, no skipped levels
@@ -103,3 +111,4 @@ Load this reference when improving, restructuring, or writing documentation pros
 - [ ] Emphasis used sparingly; alerts used sparingly and correctly typed
 - [ ] All images have meaningful alt text
 - [ ] Inclusive, active, concise language
+- [ ] Headings lead with the reader's goal; prose chunked; decorative marks minimal (see `reading-psychology.md`)

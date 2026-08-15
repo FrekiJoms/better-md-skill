@@ -40,6 +40,10 @@ One row per fixture. Expected behavior states what the skill **must** do, **must
 | 34 | `34-multiple-visual-opportunities.md` | Improve | Leave four distinct suggestions (WORKFLOW, SCREENSHOT/UI_PREVIEW, ARCHITECTURE, SCREENSHOT) each at the correct location, each specific; none vague or bottom-dumped. |
 | 35 | `35-capability-no-visuals.md` | Improve | Run in an environment with no visual tooling: suggestion mode. A specific `VISUAL SUGGESTION` at the Preview section; report states suggestions were inserted. |
 | 36 | `36-capability-with-visuals.md` | Improve | Run in an environment with capture + asset creation and user consent: create the real asset, verify it exists, then reference it with alt text. Must NOT leave a suggestion for a created asset. |
+| 37 | `37-reading-psychology-wall-of-text.md` | Edit | Walls of text restructured: chunked paragraphs, goal-first headings (no "Introduction"/"Overview" filler), lists/tables where they fit. No content loss. |
+| 38 | `38-reading-psychology-crowding.md` | Edit | Decorative marks cut (excessive bold, emoji, ALL CAPS, `!!!`), heading punctuation fixed, inline code limited to real identifiers. Distinct elements look distinct. |
+| 39 | `39-reading-psychology-comparison-table.md` | Edit | The plan comparison becomes a table (storage, transfer, support, limits, backups); prose chunks stay short. No invented plan facts. |
+| 40 | `40-reading-psychology-consistent-patterns.md` | Edit | Same content type uses the same pattern everywhere (procedures numbered, lists introduced); one name per thing (`config` vs `settings` unified); duplicate install instructions consolidated. No content loss. |
 
 ## Cross-cutting expectations (apply to every case)
 

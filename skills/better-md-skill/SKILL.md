@@ -63,6 +63,7 @@ First, load only the relevant references — never all of them, never none when 
 |---|---|
 | GitHub README or GitHub-hosted doc | `github-gfm`, `documentation-style`, `markdownlint`, `document-patterns`, `visual-assets`, `validation` |
 | Portable / CommonMark-only doc | `commonmark`, `documentation-style`, `markdownlint`, `validation` |
+| Any document with human-facing prose (always) | `reading-psychology` |
 | Any document where structure is a core concern | `document-patterns` |
 | Visual review (always, as the final pass) | `visual-assets` |
 | Always, at the end | `validation` |
@@ -104,6 +105,7 @@ One final Markdown validation pass, then return the improved document plus a con
 - Code fences lack a language identifier.
 - The document type is unclear or the structure fights the document type.
 - A GitHub README would genuinely benefit from appropriate visual elements (see `visual-assets`).
+- Prose reads like a wall of text: long unbroken paragraphs, reader-facing sections that open with "Introduction"/"Overview" filler, cramped or visually similar elements, or decorative marks (excessive bold, emoji, ALL CAPS) that add noise instead of emphasis (see `reading-psychology`).
 - GitHub-specific syntax is used in a CommonMark-only document (or the reverse: the document targets GitHub and the author is clearly fighting GFM to avoid it).
 
 **Leave alone when:**
@@ -156,6 +158,7 @@ Detailed standards live in `references/`. Load them conditionally (see Step 6):
 - `commonmark.md` — CommonMark core and portability
 - `markdownlint.md` — markdownlint-inspired checks (MD001–MD059)
 - `documentation-style.md` — GitHub documentation style guide distilled
+- `reading-psychology.md` — how humans read: chunking, crowding, visual noise, reader-goal-first headings
 - `document-patterns.md` — structure patterns per document type
 - `visual-assets.md` — icons, badges, logos, screenshots, theme-aware images, and visual asset suggestions
 - `validation.md` — the post-edit validation gate

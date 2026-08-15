@@ -1,0 +1,5 @@
+# Hosting Options
+
+## Which plan should you choose?
+
+The free plan gives you 1 GB of storage, 10 GB of monthly transfer, and community support. The pro plan gives you 100 GB of storage, 500 GB of monthly transfer, and email support with a 24-hour response time. The enterprise plan gives you unlimited storage, unlimited transfer, and a dedicated support engineer with a guaranteed one-hour response time. The free plan is best for personal projects and experiments, the pro plan is recommended for small teams and production applications, and the enterprise plan is designed for large organizations with strict compliance requirements. The free plan also limits you to 3 projects, the pro plan allows 50 projects, and the enterprise plan has no project limit. All plans include SSL certificates and automatic backups, but the free plan backs up daily while the pro and enterprise plans back up hourly.

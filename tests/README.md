@@ -52,5 +52,6 @@ The fixtures exercise the capability matrix:
 | Visual suggestion — nothing needed | 31 |
 | Visual suggestion — broken refs | 32 |
 | Capability detection | 35, 36 |
+| Reading psychology | 37–40 |
 | Content preservation | all (integrity check applies everywhere) |
 | Large documents | 10 (API reference is deliberately long) |
