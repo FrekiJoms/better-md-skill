@@ -83,7 +83,8 @@ Run the Visual Asset Review from `references/visual-assets.md` — **after** the
 For each section, ask: "Would a visual asset make this section significantly easier to understand?"
 
 - **No** → do nothing.
-- **Yes + the agent can create/insert the asset** → create or insert it, only when the user asked for visuals and the tools/permissions allow.
+- **Yes + it is a banner, logo, icon set, or simple diagram** → author a real SVG file in the repository, verify it exists, then reference it (SVG is text — any agent that writes Markdown can write SVG; see `visual-assets`).
+- **Yes + the agent can create/insert the asset** (screenshots via capture, images via generation) → create or insert it, only when the user asked for visuals and the tools/permissions allow.
 - **Yes + the agent cannot create/insert the asset** → insert a precise `VISUAL SUGGESTION` comment at the exact location.
 
 ### Step 9: Validate asset references and accessibility

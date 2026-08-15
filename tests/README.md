@@ -54,5 +54,6 @@ The fixtures exercise the capability matrix:
 | Capability detection | 35, 36 |
 | Reading psychology | 37–40 |
 | Enhanced README pattern | 41, 42 |
+| SVG asset authoring | 43, 44 |
 | Content preservation | all (integrity check applies everywhere) |
 | Large documents | 10 (API reference is deliberately long) |

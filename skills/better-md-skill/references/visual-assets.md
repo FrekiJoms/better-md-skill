@@ -19,8 +19,9 @@ Always, as the final pass of the workflow: **after** the Markdown improvement an
 Ask internally, per section: "Would a visual asset make this section significantly easier to understand?"
 
 - **No** → do nothing.
-- **Yes + the agent can create/insert the asset** → create or insert it, if the user asked for it and the tools/permissions allow (see Part 2).
-- **Yes + the agent cannot create/insert the asset** → insert a precise `VISUAL SUGGESTION` comment at the exact location.
+- **Yes + the asset is a banner, logo, icon set, or simple diagram** → **author a real SVG file** in the repository, verify it exists, then reference it (see "Authoring SVG assets"). SVG is text; most agents can write it.
+- **Yes + the agent can create/insert the asset** (screenshots via capture, images via generation, uploads) → create or insert it, only when the user asked for visuals and the tools/permissions allow (see Part 2).
+- **Yes + the agent cannot create/insert the asset** → insert a precise `VISUAL SUGGESTION` comment at the exact location (photographs, screenshots, GIFs, videos, complex illustrations).
 
 ## The critical rule
 
@@ -144,7 +145,8 @@ Determine what the current agent can actually do:
 
 - Can inspect repository files
 - Can create Markdown
-- Can create image files
+- Can **author SVG text files** — banners, simple logos, icons, simple diagrams (nearly always true: SVG is text)
+- Can create image files (PNG/JPEG rendering)
 - Can generate images
 - Can capture screenshots
 - Can access a browser
@@ -152,10 +154,22 @@ Determine what the current agent can actually do:
 - Can modify repository assets
 - Can modify a GitHub repository
 
-Do not assume capabilities. If the environment lacks visual tooling, switch to **suggestion mode** (the default for this skill). If image generation or screenshot capture is available:
+Do not assume capabilities. But do not under-assume either: writing an SVG file is file writing, and any agent that can write Markdown can author one.
 
-- Only create assets when the user explicitly wants them; improving Markdown quality is the skill's primary job.
-- Verify the asset exists after creating it, then insert the reference.
+## Authoring SVG assets
+
+SVG is text — when the document is GitHub-targeted and a banner, logo, icon set, or simple diagram is missing, **create a real SVG file** instead of suggesting one. This is the preferred path; `VISUAL SUGGESTION` is for assets the agent genuinely cannot produce (photographs, screenshots, GIFs, videos, complex illustrations).
+
+Rules:
+
+- Save the asset in the repository (`assets/banner.svg`, `assets/logo.svg`, `assets/icons/<name>.svg`), verify it exists, then reference it. Never reference before the file is confirmed.
+- **Banner**: `width="1200" height="300"`, matching `viewBox`, one tasteful gradient or solid color, white text, font stack (`Segoe UI, Arial, sans-serif`), `role="img"` and a descriptive `aria-label`. Render centered: `<p align="center"><img src="./assets/banner.svg" alt="..." width="100%"></p>`.
+- **Logo**: simple — two colors max, `viewBox="0 0 512 512"`, geometric shapes.
+- **Icons**: one per feature is overkill; a single restrained set (max 4–6) or none.
+- **Simple diagrams** (flow, architecture): only when a Mermaid fence would not render (non-GitHub targets); prefer Mermaid on GitHub.
+- No trademark mimicry: never imitate an existing brand's logo; never create a project identity the author did not ask for — if the project's identity is unknown, create a neutral banner or ask.
+- Respect the decoration budget: one hero element (banner OR logo, not both).
+- Keep the SVG hand-maintainable: small, readable, plain shapes — no embedded photos, no generated noise.
 
 ## Visual review report
 
@@ -335,6 +349,7 @@ Choose the structure that best fits the repository. Do not create unnecessary di
 - [ ] Every suggestion is specific (what / where / details / why) and typed (`SCREENSHOT`, `ARCHITECTURE`, …)
 - [ ] Suggestions are high-value only; existing visuals are respected and never duplicated
 - [ ] No fake image references, invented paths, or nonexistent URLs anywhere
+- [ ] Authored SVG assets exist on disk before being referenced; banners have `role="img"` + `aria-label`, sane dimensions and viewBox
 - [ ] Image references appear only for files that were verified to exist
 - [ ] Every URL used is a real, documented pattern or a verified live URL
 - [ ] Every technology in an icon row is actually in the project

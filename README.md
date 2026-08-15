@@ -55,7 +55,7 @@ Improve this README using Better-md-skill.
 ## Choose Your Path
 
 * New to the skill: Start with [Install](#install) and [Use it](#use-it) to improve your first document.
-* Evaluating it: Run the [test suite](tests/README.md) — 42 cases covering every capability.
+* Evaluating it: Run the [test suite](tests/README.md) — 44 cases covering every capability.
 * Extending it: Read the [Contributing Guide](#contributing) and add a fixture for any behavioral change.
 
 ## Navigate This Repository
@@ -155,6 +155,7 @@ The skill picks the right rules for the document type and target renderer (GitHu
 * **GitHub readiness** — GFM tables, task lists, alerts, relative links, Mermaid, theme-aware images; portable documents stay portable
 * **Validation** — a post-edit gate that checks integrity, accessibility, and anti-fabrication
 * **Visual design** — verified tech icons, truthful badges, logos, screenshots, diagrams
+* **Asset authoring** — creates real SVG banners, logos, and icon sets in the repository when they are missing (SVG is text; no capture tools needed)
 * **Visual suggestions** — where a screenshot, diagram, or GIF would help but the agent cannot create it, it leaves a precise invisible `VISUAL SUGGESTION` comment in place (below)
 
 ## How visual suggestions work
@@ -231,7 +232,7 @@ Model documents in `skills/better-md-skill/examples/`:
 
 ## Test it
 
-`tests/` holds a 42-case fixture suite: bad headings, broken lists, bad tables, missing code languages, broken links, poor and good READMEs, all supported document types, GitHub alerts, CommonMark vs GFM awareness, technology icons, badges, screenshots, existing assets, light/dark logos, excessive decoration, invalid external assets, visual suggestions, and reading-psychology cases. See `tests/README.md` for how to run it.
+`tests/` holds a 44-case fixture suite: bad headings, broken lists, bad tables, missing code languages, broken links, poor and good READMEs, all supported document types, GitHub alerts, CommonMark vs GFM awareness, technology icons, badges, screenshots, existing assets, light/dark logos, excessive decoration, invalid external assets, visual suggestions, reading-psychology cases, enhanced README patterns, and SVG asset authoring. See `tests/README.md` for how to run it.
 
 ## Contributing
 

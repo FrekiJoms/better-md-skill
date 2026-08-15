@@ -46,6 +46,8 @@ One row per fixture. Expected behavior states what the skill **must** do, **must
 | 40 | `40-reading-psychology-consistent-patterns.md` | Edit | Same content type uses the same pattern everywhere (procedures numbered, lists introduced); one name per thing (`config` vs `settings` unified); duplicate install instructions consolidated. No content loss. |
 | 41 | `41-hve-style-readme.md` | Audit | Enhanced project-scale README (frontmatter, purpose paragraph, scope CAUTION, Where to Start, Choose Your Path, goal-first navigation tables): already good — make no changes (or only trivial fixes). |
 | 42 | `42-goal-first-navigation.md` | Edit | Add a goal-first Navigate table (`| Goal | Go here |`) for the documented intents, a Choose Your Path section (new user → getting started, team lead → standards, contributor → plugin API), and Where to Start steps. Preserve every fact; no invented doc paths beyond the ones already referenced. |
+| 43 | `43-svg-banner-creation.md` | Improve | GitHub-targeted README without a hero element: **author a real `assets/banner.svg`** (1200×300, viewBox, gradient, aria-label), verify it exists, then reference it centered. No VISUAL SUGGESTION for the banner; one hero element only. |
+| 44 | `44-svg-not-for-photos.md` | Improve | Missing visuals are screenshots of a GUI editor: must NOT author fake SVGs for them — leave specific `VISUAL SUGGESTION [SCREENSHOT]` comments instead. No fabricated image files. |
 
 ## Cross-cutting expectations (apply to every case)
 
