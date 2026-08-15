@@ -55,7 +55,7 @@ The fixtures exercise the capability matrix:
 | Reading psychology | 37–40 |
 | Enhanced README pattern | 41, 42 |
 | SVG asset authoring | 43, 44 |
-| Main README full pattern | 45 |
+| Main README full pattern | 45, 47 |
 | No README pattern in non-README docs | 46 |
 | Content preservation | all (integrity check applies everywhere) |
 | Large documents | 10 (API reference is deliberately long) |

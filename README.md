@@ -55,7 +55,7 @@ Improve this README using Better-md-skill.
 ## Choose Your Path
 
 * New to the skill: Start with [Install](#install) and [Use it](#use-it) to improve your first document.
-* Evaluating it: Run the [test suite](tests/README.md) — 46 cases covering every capability.
+* Evaluating it: Run the [test suite](tests/README.md) — 47 cases covering every capability.
 * Extending it: Read the [Contributing Guide](#contributing) and add a fixture for any behavioral change.
 
 ## Navigate This Repository
@@ -232,7 +232,7 @@ Model documents in `skills/better-md-skill/examples/`:
 
 ## Test it
 
-`tests/` holds a 46-case fixture suite: bad headings, broken lists, bad tables, missing code languages, broken links, poor and good READMEs, all supported document types, GitHub alerts, CommonMark vs GFM awareness, technology icons, badges, screenshots, existing assets, light/dark logos, excessive decoration, invalid external assets, visual suggestions, reading-psychology cases, enhanced README patterns, SVG asset authoring, and the full main-README pattern. See `tests/README.md` for how to run it.
+`tests/` holds a 47-case fixture suite: bad headings, broken lists, bad tables, missing code languages, broken links, poor and good READMEs, all supported document types, GitHub alerts, CommonMark vs GFM awareness, technology icons, badges, screenshots, existing assets, light/dark logos, excessive decoration, invalid external assets, visual suggestions, reading-psychology cases, enhanced README patterns, SVG asset authoring, and the full main-README pattern. See `tests/README.md` for how to run it.
 
 ## Contributing
 

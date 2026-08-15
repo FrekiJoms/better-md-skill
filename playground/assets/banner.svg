@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-label="My App banner: manage tasks, track projects, collaborate with your team">
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="300" fill="url(#background)"/>
+  <text x="600" y="145" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="72" font-weight="600" fill="#ffffff">My App</text>
+  <text x="600" y="215" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="28" fill="#e0e7ff">Manage tasks · Track projects · Collaborate</text>
+</svg>
